@@ -6,7 +6,7 @@
 </head>
 <body>
 <img src="./res/icon/android/mipmap-hdpi/ic_launcher.png" />
-<form method="post" action="">
+<div id="welt"></div>
     Event:
     <select>
         <option>Event 1</option>
@@ -40,6 +40,16 @@
     <br />
     Einladen:
     <input type="checkbox" name="einladen" />
-</form>
+    <br />
+
+<button onclick="showEntries();">Speichern</button>
+
+<script type="text/javascript">
+    function showEntries(){
+        var welt=document.getElementById("welt");
+        welt.innerHTML="<h3>hallowelt</h3>";
+    }
+</script>
+
 </body>
 </html>
