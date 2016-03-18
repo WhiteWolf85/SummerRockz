@@ -9,20 +9,26 @@
 <body>
 
 <script type="text/javascript">
+
     var ID=localStorage.getItem("summerrockzID");
     if(ID===null) {
         ID = Math.random();
         localStorage.setItem("summerrockzID", ID);
     }
 
-    function saveEntries(){
+    function getEntries(){
         if(localStorage.summerrockzentries!=undefined) {
             var entries = JSON.parse(localStorage.summerrockzentries);
         }else{
             entries=[];
         }
+        return entries
+    }
 
-        entries.unshift(new Array(document.getElementById("event").value,document.getElementById("Vorname").value,document.getElementById("Nachname").value,document.getElementById("Gesellschaft").value,document.getElementById("Anzahl").value));
+    function saveEntries(){
+
+        entries=getEntries();
+        entries.unshift(new Array(Math.random(),document.getElementById("event").value,document.getElementById("Vorname").value,document.getElementById("Nachname").value,document.getElementById("Gesellschaft").value,document.getElementById("Anzahl").value,document.getElementById("Frauen").value,document.getElementById("notizen").value,document.getElementById("einladen").value));
         localStorage.summerrockzentries=JSON.stringify(entries);
     }
 
@@ -34,6 +40,40 @@
     function goToArchive(){
         document.getElementById("archive").style.display='block';
         document.getElementById("home").style.display='none';
+        buildArchive();
+        qr=new QRCode(document.getElementById("qr"),"hallowelt");
+    }
+
+    function createQR(code){
+        qr.clear();
+        qr.makeCode(code);
+    }
+
+    function buildArchive(){
+
+        document.getElementById("archive").innerHTML='<div id="qr"></div>';
+        entries=getEntries();
+        var html;
+        for(var i= 0; i<entries.length;i++){
+            html='<div onclick="createQR('+"'"+entries[i][1]+"'"+')">ID: '+entries[i][0]+'<br />';
+            html+='Event: '+entries[i][1]+'<br />';
+            html+='Vorname: '+entries[i][2]+'<br />';
+            html+='Nachname: '+entries[i][3]+'<br />';
+            html+='Gesellschaft: '+entries[i][4]+'<br />';
+            html+='Anzahl: '+entries[i][5]+'<br />';
+            html+='davon Frauen: '+entries[i][6]+'<br />';
+            html+='Sonstiges: '+entries[i][7]+'<br />';
+            html+='einladen: ';
+            if(entries[i][8]=="on"){
+                html+='<i class="fa fa-check"></i>'
+            }else{
+                html+='<i class="fa fa-hacker-news"></i>'
+            }
+
+            html+='</div>';
+            document.getElementById("archive").innerHTML+=html;
+        }
+
     }
 
 
@@ -78,15 +118,21 @@
 <button onclick="saveEntries();">Speichern</button>
 </div>
 <div id="archive">
-    <h3>Archiv</h3>
+    <div id="qr"></div>
 </div>
 
 <div id="menu">
     <button onclick="goToHome();"><i class="fa fa-home"></i></button>
     <button onclick="goToArchive();"><i class="fa fa-archive"></i></button>
+    <button onclick="transmit();"><i class="fa fa-mail-forward"></i></button>
 </div>
 
-<script type="text/javascript">document.getElementById("archive").style.display='none';</script>
+<script type="text/javascript">
+    document.getElementById("archive").style.display='none';
+
+
+
+</script>
 
 </body>
 </html>
