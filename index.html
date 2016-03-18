@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <script type="text/javascript" src="./data/qrcodejs/qrcode.js"></script>
+    <script type="text/javascript" src="./data/wormholejs/wormhole.js"></script>
 </head>
 <body>
+<div id="qrcode"></div>
+<script type="text/javascript">
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        var qrcode = document.getElementById("qrcode");
+        qrcode.innerText = "UUID=" + device.uuid;
+    }
+</script>
 <img src="./res/icon/android/mipmap-hdpi/ic_launcher.png" />
 <div id="welt"></div>
     Event:
