@@ -4,21 +4,44 @@
     <meta charset="UTF-8">
     <title></title>
     <script type="text/javascript" src="./data/qrcodejs/qrcode.js"></script>
-    <script type="text/javascript" src="./data/wormholejs/wormhole.js"></script>
+    <link rel="stylesheet" href="./css/font-awesome-4.5.0/css/font-awesome.min.css">
 </head>
 <body>
-<div id="qrcode"></div>
+
 <script type="text/javascript">
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        var qrcode = document.getElementById("qrcode");
-        qrcode.innerText = "UUID=" + device.uuid;
+    var ID=localStorage.getItem("summerrockzID");
+    if(ID===null) {
+        ID = Math.random();
+        localStorage.setItem("summerrockzID", ID);
     }
+
+    function saveEntries(){
+        if(localStorage.summerrockzentries!=undefined) {
+            var entries = JSON.parse(localStorage.summerrockzentries);
+        }else{
+            entries=[];
+        }
+
+        entries.unshift(new Array(document.getElementById("event").value,document.getElementById("Vorname").value,document.getElementById("Nachname").value,document.getElementById("Gesellschaft").value,document.getElementById("Anzahl").value));
+        localStorage.summerrockzentries=JSON.stringify(entries);
+    }
+
+    function goToHome(){
+        document.getElementById("archive").style.display='none';
+        document.getElementById("home").style.display='block';
+    }
+
+    function goToArchive(){
+        document.getElementById("archive").style.display='block';
+        document.getElementById("home").style.display='none';
+    }
+
+
 </script>
 <img src="./res/icon/android/mipmap-hdpi/ic_launcher.png" />
-<div id="welt"></div>
+<div id="home">
     Event:
-    <select>
+    <select id="event">
         <option>Event 1</option>
         <option>Event 2</option>
         <option>Event 3</option>
@@ -26,13 +49,13 @@
     </select>
     <br />
     Name:
-    <input type="text" name="Name" />
+    <input type="text" id="Vorname" name="Name" />
     <br />
     Vorname:
-    <input type="text" name="Nachname" />
+    <input type="text" id="Nachname" name="Nachname" />
     <br />
     Reisegesellschaft:
-    <select>
+    <select id="Gesellschaft">
         <option>Reisegesellschaft 1</option>
         <option>Reisegesellschaft 2</option>
         <option>Reisegesellschaft 3</option>
@@ -40,26 +63,30 @@
     </select>
     <br />
     Anzahl:
-    <input type="number" name="gesamt" />
+    <input type="number" id="Anzahl" name="gesamt" />
     <br />
-    davonn Frauen:
-    <input type="number" name="Frauen" />
+    davon Frauen:
+    <input type="number" id="Frauen" name="Frauen" />
     <br />
     Sonstiges:
-    <textarea name="sonstiges" cols="35" rows="4"></textarea>
+    <textarea name="sonstiges" id="notizen" cols="35" rows="4"></textarea>
     <br />
     Einladen:
-    <input type="checkbox" name="einladen" />
+    <input type="checkbox" id="einladen" name="einladen" />
     <br />
 
-<button onclick="showEntries();">Speichern</button>
+<button onclick="saveEntries();">Speichern</button>
+</div>
+<div id="archive">
+    <h3>Archiv</h3>
+</div>
 
-<script type="text/javascript">
-    function showEntries(){
-        var welt=document.getElementById("welt");
-        welt.innerHTML="<h3>hallowelt</h3>";
-    }
-</script>
+<div id="menu">
+    <button onclick="goToHome();"><i class="fa fa-home"></i></button>
+    <button onclick="goToArchive();"><i class="fa fa-archive"></i></button>
+</div>
+
+<script type="text/javascript">document.getElementById("archive").style.display='none';</script>
 
 </body>
 </html>
