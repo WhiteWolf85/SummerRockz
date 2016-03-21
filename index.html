@@ -41,7 +41,7 @@
         document.getElementById("archive").style.display='block';
         document.getElementById("home").style.display='none';
         buildArchive();
-        qr=new QRCode(document.getElementById("qr"),"hallowelt");
+        qr=new QRCode(document.getElementById("qr"),"");
     }
 
     function createQR(code){
@@ -51,11 +51,11 @@
 
     function buildArchive(){
 
-        document.getElementById("archive").innerHTML='<div id="qr"></div>';
+
         entries=getEntries();
-        var html;
+        var innerHTML="";
         for(var i= 0; i<entries.length;i++){
-            html='<div onclick="createQR('+"'"+entries[i][1]+"'"+')">ID: '+entries[i][0]+'<br />';
+            html='<div onclick="createQR('+"'"+entries[i][0]+"'"+')">ID: '+entries[i][0]+'<br />';
             html+='Event: '+entries[i][1]+'<br />';
             html+='Vorname: '+entries[i][2]+'<br />';
             html+='Nachname: '+entries[i][3]+'<br />';
@@ -71,14 +71,19 @@
             }
 
             html+='</div>';
-            document.getElementById("archive").innerHTML+=html;
+            innerHTML+=html;
         }
-
+        document.getElementById("archive").innerHTML='<div id="qr"></div><div id="archiveEntries" style="height:300px;overflow:auto;">'+innerHTML+'</div>';
     }
 
 
 </script>
 <img src="./res/icon/android/mipmap-hdpi/ic_launcher.png" />
+<div id="menu">
+    <button onclick="goToHome();"><i class="fa fa-home"></i></button>
+    <button onclick="goToArchive();"><i class="fa fa-archive"></i></button>
+    <button onclick="transmit();"><i class="fa fa-mail-forward"></i></button>
+</div>
 <div id="home">
     Event:
     <select id="event">
@@ -118,13 +123,7 @@
 <button onclick="saveEntries();">Speichern</button>
 </div>
 <div id="archive">
-    <div id="qr"></div>
-</div>
-
-<div id="menu">
-    <button onclick="goToHome();"><i class="fa fa-home"></i></button>
-    <button onclick="goToArchive();"><i class="fa fa-archive"></i></button>
-    <button onclick="transmit();"><i class="fa fa-mail-forward"></i></button>
+   <div id="qr"></div>
 </div>
 
 <script type="text/javascript">
