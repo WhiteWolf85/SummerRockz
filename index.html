@@ -5,6 +5,7 @@
     <title></title>
     <script type="text/javascript" src="./data/qrcodejs/qrcode.js"></script>
     <link rel="stylesheet" href="./css/font-awesome-4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
 
@@ -55,7 +56,7 @@
         entries=getEntries();
         var innerHTML="";
         for(var i= 0; i<entries.length;i++){
-            html='<div onclick="createQR('+"'"+entries[i][0]+"'"+')">ID: '+entries[i][0]+'<br />';
+            html='<a><div onclick="createQR('+"'"+entries[i][0]+"'"+')">ID: '+entries[i][0]+'<br />';
             html+='Event: '+entries[i][1]+'<br />';
             html+='Vorname: '+entries[i][2]+'<br />';
             html+='Nachname: '+entries[i][3]+'<br />';
@@ -70,7 +71,7 @@
                 html+='<i class="fa fa-hacker-news"></i>'
             }
 
-            html+='</div>';
+            html+='</div></a>';
             innerHTML+=html;
         }
         document.getElementById("archive").innerHTML='<div id="qr"></div><div id="archiveEntries" style="height:300px;overflow:auto;">'+innerHTML+'</div>';
