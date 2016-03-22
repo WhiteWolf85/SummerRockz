@@ -17,6 +17,8 @@
         localStorage.setItem("summerrockzID", ID);
     }
 
+
+
     function getEntries(){
         if(localStorage.summerrockzentries!=undefined) {
             var entries = JSON.parse(localStorage.summerrockzentries);
@@ -29,31 +31,34 @@
     function saveEntries(){
 
         entries=getEntries();
+        var code=Math.random();
         var date=new Date();
         var Wochentag = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch","Donnerstag", "Freitag", "Samstag");
-        entries.unshift(new Array(Math.random(),document.getElementById("event").value,document.getElementById("Vorname").value,document.getElementById("Nachname").value,document.getElementById("Gesellschaft").value,document.getElementById("Anzahl").value,document.getElementById("Frauen").value,document.getElementById("notizen").value,document.getElementById("einladen").value,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
+        entries.unshift(new Array(code,document.getElementById("event").value,document.getElementById("Vorname").value,document.getElementById("Nachname").value,document.getElementById("Gesellschaft").value,document.getElementById("Anzahl").value,document.getElementById("Frauen").value,document.getElementById("notizen").value,document.getElementById("einladen").value,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
         localStorage.summerrockzentries=JSON.stringify(entries);
-    }
-
-    function showQR(code){
-        qr=new QRCode(document.getElementById("qr"),code);
+        createQR(code);
     }
 
     function goToHome(){
         document.getElementById("archive").style.display='none';
         document.getElementById("home").style.display='block';
+        document.getElementById("qr").style.display='none';
     }
 
     function goToArchive(){
         document.getElementById("archive").style.display='block';
         document.getElementById("home").style.display='none';
         buildArchive();
-        qr=new QRCode(document.getElementById("qr"),"");
     }
 
     function createQR(code){
-        qr.clear();
         qr.makeCode(code);
+        document.getElementById("qr").style.display='block';
+    }
+
+    function hideQR(){
+        document.getElementById("qr").style.display='none';
+        document.getElementById("enteredName").style.display='none';
     }
 
     function buildArchive(){
@@ -79,6 +84,7 @@
             innerHTML+=html;
         }
         document.getElementById("archive").innerHTML='<div id="qr"></div><div id="archiveEntries" style="height:300px;overflow:auto;">'+innerHTML+'</div>';
+        createQR(entries[0][0]);
     }
 
 
@@ -89,7 +95,10 @@
     <button onclick="goToArchive();"><i class="fa fa-archive"></i></button>
     <button onclick="transmit();"><i class="fa fa-mail-forward"></i></button>
 </div>
+<div id="qr"></div>
 <div id="home">
+    <div id="enteredName"></div>
+    <div onclick="hideQR()" id="qrStart"></div>
     Event:
     <select id="event">
         <option>Event 1</option>
@@ -128,13 +137,14 @@
 <button onclick="saveEntries();">Speichern</button>
 </div>
 <div id="archive">
-   <div id="qr"></div>
+
 </div>
 
 <script type="text/javascript">
     document.getElementById("archive").style.display='none';
-
-
+    document.getElementById("enteredName").style.display='none';
+    document.getElementById("qr").style.display='none';
+    qr=new QRCode(document.getElementById("qr"),"");
 
 </script>
 
