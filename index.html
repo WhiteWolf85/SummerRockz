@@ -29,8 +29,14 @@
     function saveEntries(){
 
         entries=getEntries();
-        entries.unshift(new Array(Math.random(),document.getElementById("event").value,document.getElementById("Vorname").value,document.getElementById("Nachname").value,document.getElementById("Gesellschaft").value,document.getElementById("Anzahl").value,document.getElementById("Frauen").value,document.getElementById("notizen").value,document.getElementById("einladen").value));
+        var date=new Date();
+        var Wochentag = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch","Donnerstag", "Freitag", "Samstag");
+        entries.unshift(new Array(Math.random(),document.getElementById("event").value,document.getElementById("Vorname").value,document.getElementById("Nachname").value,document.getElementById("Gesellschaft").value,document.getElementById("Anzahl").value,document.getElementById("Frauen").value,document.getElementById("notizen").value,document.getElementById("einladen").value,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
         localStorage.summerrockzentries=JSON.stringify(entries);
+    }
+
+    function showQR(code){
+        qr=new QRCode(document.getElementById("qr"),code);
     }
 
     function goToHome(){
@@ -56,21 +62,19 @@
         entries=getEntries();
         var innerHTML="";
         for(var i= 0; i<entries.length;i++){
-            html='<a><div onclick="createQR('+"'"+entries[i][0]+"'"+')">ID: '+entries[i][0]+'<br />';
+            html='<a><div onclick="createQR('+"'"+entries[i][0]+"'"+')">';
             html+='Event: '+entries[i][1]+'<br />';
-            html+='Vorname: '+entries[i][2]+'<br />';
-            html+='Nachname: '+entries[i][3]+'<br />';
+            html+='Name: '+entries[i][2]+' '+entries[i][3]+'<br />';
             html+='Gesellschaft: '+entries[i][4]+'<br />';
-            html+='Anzahl: '+entries[i][5]+'<br />';
-            html+='davon Frauen: '+entries[i][6]+'<br />';
+            html+='Anzahl: '+entries[i][5]+' / davon Frauen: '+entries[i][6]+'<br />';
             html+='Sonstiges: '+entries[i][7]+'<br />';
-            html+='einladen: ';
+            html+='eingeladen: ';
             if(entries[i][8]=="on"){
                 html+='<i class="fa fa-check"></i>'
             }else{
                 html+='<i class="fa fa-hacker-news"></i>'
             }
-
+            html+='<br />Eintrag hinzugefügt am: ' + entries[i][9];
             html+='</div></a>';
             innerHTML+=html;
         }
