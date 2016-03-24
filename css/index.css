@@ -15,7 +15,6 @@ a:hover{
 }
 
 #home select,input{
-    margin-left:8em;
 }
 
 #home div{
@@ -23,7 +22,5 @@ a:hover{
 }
 
 #content{
-    margin-left:auto;
-    margin-right:auto;
-    width:150px;
+    text-align:center;
 }
