@@ -67,7 +67,7 @@
         entries=getEntries();
         var innerHTML="";
         for(var i= 0; i<entries.length;i++){
-            html='<a><div onclick="createQR('+"'"+entries[i][0]+"'"+')">';
+            html='<a><div id="entry" onclick="createQR('+"'"+entries[i][0]+"'"+')">';
             html+='Event: '+entries[i][1]+'<br />';
             html+='Name: '+entries[i][2]+' '+entries[i][3]+'<br />';
             html+='Gesellschaft: '+entries[i][4]+'<br />';
@@ -87,65 +87,66 @@
         createQR(entries[0][0]);
     }
 
+    function einladen(){
+        var chk=document.getElementById("einladen");
+        var btn=document.getElementById("btn_einladen");
+        if(chk.value=="off"){
+            chk.value="on";
+            btn.textContent="Eingeladen";
+            btn.className="green";
+        }else{
+            chk.value="off";
+            btn.textContent="Einladen";
+            btn.className="";
+        }
+    }
+
 
 </script>
 <div id="content">
-<img src="./res/icon/android/mipmap-hdpi/ic_launcher.png" />
+    <img src="./res/icon/android/mipmap-hdpi/ic_launcher.png" />
 
-<div id="menu">
-    <a onclick="goToHome();">Eintragen</a>
-    <a onclick="goToArchive();">History</a>
-</div>
-<div id="qr"></div>
-<div id="home">
-    <div id="enteredName"></div>
-    <div onclick="hideQR()" id="qrStart"></div>
-    Event:
-    <select id="event">
-        <option>Event 1</option>
-        <option>Event 2</option>
-        <option>Event 3</option>
-        <option>Event 4</option>
-    </select>
-    <br />
-    Name:
-    <input type="text" id="Vorname" name="Name" />
-    <br />
-    Vorname:
-    <input type="text" id="Nachname" name="Nachname" />
-    <br />
-    Reisegesellschaft:
-    <select id="Gesellschaft">
-        <option>Reisegesellschaft 1</option>
-        <option>Reisegesellschaft 2</option>
-        <option>Reisegesellschaft 3</option>
-        <option>Reisegesellschaft 4</option>
-    </select>
-    <br />
-    Anzahl:
-    <input type="number" id="Anzahl" name="gesamt" />
-    <br />
-    davon Frauen:
-    <input type="number" id="Frauen" name="Frauen" />
-    <br />
-    Sonstiges:
-    <textarea name="sonstiges" id="notizen" cols="35" rows="4"></textarea>
-    <br />
-    Einladen:
-    <input type="checkbox" id="einladen" name="einladen" />
-    <br />
+    <div id="menu">
+        <a onclick="goToHome();">Eintragen</a>
+        <a onclick="goToArchive();">History</a>
+    </div>
+    <div id="qr"></div>
+    <div id="home">
+        <div id="enteredName"></div>
+        <div onclick="hideQR()" id="qrStart"></div>
+        <button onclick="saveEntries();">Speichern</button>
+        <select id="event">
+            <option>Event 1</option>
+            <option>Event 2</option>
+            <option>Event 3</option>
+            <option>Event 4</option>
+        </select>
+        <input type="text" id="Vorname" name="Name" placeholder="Name" />
+        <input type="text" id="Nachname" name="Nachname" placeholder="Vorname" />
 
-<button onclick="saveEntries();">Speichern</button>
-</div>
-<div id="archive">
+        <select id="Gesellschaft">
+            <option>Reisegesellschaft 1</option>
+            <option>Reisegesellschaft 2</option>
+            <option>Reisegesellschaft 3</option>
+            <option>Reisegesellschaft 4</option>
+        </select>
+        <input type="number" id="Anzahl" name="gesamt" placeholder="Anzahl Personen" />
+        <input type="number" id="Frauen" name="Frauen" placeholder="davon Frauen" />
+        <textarea name="sonstiges" id="notizen" cols="35" rows="4" placeholder="Notizen"></textarea>
+        <br />
+        <button onClick="einladen();" id="btn_einladen">Einladen</button>
+        <input type="checkbox" id="einladen" name="einladen" />
 
-</div>
+
+    </div>
+    <div id="archive"></div>
 </div>
 <script type="text/javascript">
     document.getElementById("archive").style.display='none';
     document.getElementById("enteredName").style.display='none';
     document.getElementById("qr").style.display='none';
     qr=new QRCode(document.getElementById("qr"),"");
+    document.getElementById("einladen").value="off";
 
 </script>
 
