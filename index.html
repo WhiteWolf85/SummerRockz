@@ -44,15 +44,15 @@
         document.getElementById("archive").style.display='none';
         document.getElementById("home").style.display='block';
         document.getElementById("qr").style.display='none';
-        document.getElementById("homeLink").className="";
-        document.getElementById("archiveLink").className="menuNotActivated";
+        document.getElementById("archiveLink").className="";
+        document.getElementById("homeLink").className="menuActivated";
     }
 
     function goToArchive(){
         document.getElementById("archive").style.display='block';
         document.getElementById("home").style.display='none';
-        document.getElementById("archiveLink").className="";
-        document.getElementById("homeLink").className="menuNotActivated";
+        document.getElementById("homeLink").className="";
+        document.getElementById("archiveLink").className="menuActivated";
         buildArchive();
     }
 
@@ -151,8 +151,8 @@
     <img src="./res/icon/android/mipmap-hdpi/ic_launcher.png" />
 
     <div id="menu">
-        <div onclick="goToHome();" id="homeLink" class>Invite</div>
-        <div onclick="goToArchive();" id="archiveLink" class="menuNotActivated">History</div>
+        <div onclick="goToHome();" id="homeLink" class="menuActivated">Invite</div>
+        <div onclick="goToArchive();" id="archiveLink" class>History</div>
     </div>
     <div id="qr"></div>
     <div id="home">
