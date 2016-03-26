@@ -12,10 +12,12 @@ BODY{
 #menu{
     width:100%;
     height:3em;
-    background:white;
     opacity:0.8;
     margin-top:1em;
-
+    display: flex;
+    flex-flow: row wrap;
+    border:1px solid black;
+    align-items:center;
 }
 
 #home select,input,textarea,#btn_einladen{
@@ -27,6 +29,14 @@ BODY{
     height:3em;
     font-size:large;
 }
+
+#homeLink,#archiveLink{
+    flex:2 1 0%;
+    font-size:x-large;
+    height:100%;
+}
+
+
 
 .menuNotActivated{
     background:lightgrey;
@@ -45,9 +55,6 @@ textarea{
     background:greenyellow;
 }
 
-#btn_einladen{
-
-}
 
 button,select{
     border-radius:18px;
@@ -82,7 +89,7 @@ button,select{
     text-align: left;
     margin-left:auto;
     margin-right:auto;
-    width: 500px;
+    width: 100%;
 }
 
 #entry{
