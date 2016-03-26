@@ -44,11 +44,15 @@
         document.getElementById("archive").style.display='none';
         document.getElementById("home").style.display='block';
         document.getElementById("qr").style.display='none';
+        document.getElementById("homeLink").className="";
+        document.getElementById("archiveLink").className="menuNotActivated";
     }
 
     function goToArchive(){
         document.getElementById("archive").style.display='block';
         document.getElementById("home").style.display='none';
+        document.getElementById("archiveLink").className="";
+        document.getElementById("homeLink").className="menuNotActivated";
         buildArchive();
     }
 
@@ -108,18 +112,18 @@
             html='<a><div id="entry" onclick="createQR('+"'"+entries[i][0]+"'"+')">';
             html+='Event: '+entries[i][1]+'<br />';
             html+='Name: '+entries[i][2]+' '+entries[i][3]+'<br />';
-            html+='Telefon '+entries[i][4]+'<br />';
-            html+='Gesellschaft: '+entries[i][5]+'<br />';
-            html+='Anzahl: '+entries[i][6]+' / davon Frauen: '+entries[i][7]+'<br />';
-            html+='Sonstiges: '+entries[i][8]+'<br />';
-            html+='eingeladen: ';
+            html+='Phone: '+entries[i][4]+'<br />';
+            html+='Tourist party: '+entries[i][5]+'<br />';
+            html+='Amount of people: '+entries[i][6]+' / Girls: '+entries[i][7]+'<br />';
+            html+='Notice: '+entries[i][8]+'<br />';
+            html+='invited: ';
             if(entries[i][9]=="on"){
                 html+='<i class="fa fa-check"></i>'
             }else{
                 html+='<i class="fa fa-hacker-news"></i>'
             }
             //html+='<br />Eintrag hinzugefügt am: ' + entries[i][10];
-            html+='<button id="' + entries[i][0] + '" class="deleteEntry deleteButton" onclick="deleteEntry('+ entries[i][0] +')">Delete</button>';
+            html+='<p><button id="' + entries[i][0] + '" class="deleteEntry deleteButton" onclick="deleteEntry('+ entries[i][0] +')">Delete</button></p>';
             html+='</div></a>';
             innerHTML+=html;
         }
@@ -147,8 +151,8 @@
     <img src="./res/icon/android/mipmap-hdpi/ic_launcher.png" />
 
     <div id="menu">
-        <a onclick="goToHome();">Invite</a>
-        <a onclick="goToArchive();">History</a>
+        <a id="homeLink" class="" onclick="goToHome();">Invite</a>
+        <a id="archiveLink" class="menuNotActivated" onclick="goToArchive();">History</a>
     </div>
     <div id="qr"></div>
     <div id="home">
