@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
     <script type="text/javascript" src="./data/qrcodejs/qrcode.js"></script>
+    <script type=”text/javascript” src=”./data/language/messages.{{ app.session.getLocale() }}.js”></script>
     <link rel="stylesheet" href="./css/font-awesome-4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/index.css">
 </head>
@@ -34,7 +35,7 @@
         var code=Math.random();
         var date=new Date();
         var Wochentag = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch","Donnerstag", "Freitag", "Samstag");
-        entries.unshift(new Array(code,document.getElementById("event").value,document.getElementById("Vorname").value,document.getElementById("Nachname").value,document.getElementById("Gesellschaft").value,document.getElementById("Anzahl").value,document.getElementById("Frauen").value,document.getElementById("notizen").value,document.getElementById("einladen").value,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
+        entries.unshift(new Array(code,document.getElementById("event").value,document.getElementById("Vorname").value,document.getElementById("Nachname").value,document.getElementById("Telefon").value,document.getElementById("Gesellschaft").value,document.getElementById("Anzahl").value,document.getElementById("Frauen").value,document.getElementById("notizen").value,document.getElementById("einladen").value,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
         localStorage.summerrockzentries=JSON.stringify(entries);
         createQR(code);
     }
@@ -54,6 +55,7 @@
     function createQR(code){
         qr.makeCode(code);
         document.getElementById("qr").style.display='block';
+        showDeleteButton(code);
     }
 
     function hideQR(){
@@ -61,25 +63,63 @@
         document.getElementById("enteredName").style.display='none';
     }
 
+    function trans(identifier)
+    {
+        var message = identifier;
+        if (__lang != undefined) {
+            if (__lang[identifier] != undefined) {
+                message = __lang[identifier];
+            }
+        }
+        return message;
+    }
+
+    function showDeleteButton(code){
+        var buttons=document.getElementsByClassName("deleteButton");
+        var i=0;
+        while(buttons.length>i){
+            buttons[i].className="deleteEntry deleteButton";
+            i++;
+        }
+
+        document.getElementById(code).className="deleteButton";
+    }
+
+    function deleteEntry(entry){
+        var entries=getEntries();
+        var i=0;
+        while(i<entries.length){
+            if(entries[i][0]==entry){
+                entries.splice(i,1);
+            }
+            i++;
+        }
+        localStorage.summerrockzentries.clear;
+        localStorage.summerrockzentries=JSON.stringify(entries);
+        buildArchive();
+    }
+
     function buildArchive(){
 
 
-        entries=getEntries();
+        var entries=getEntries();
         var innerHTML="";
         for(var i= 0; i<entries.length;i++){
             html='<a><div id="entry" onclick="createQR('+"'"+entries[i][0]+"'"+')">';
             html+='Event: '+entries[i][1]+'<br />';
             html+='Name: '+entries[i][2]+' '+entries[i][3]+'<br />';
-            html+='Gesellschaft: '+entries[i][4]+'<br />';
-            html+='Anzahl: '+entries[i][5]+' / davon Frauen: '+entries[i][6]+'<br />';
-            html+='Sonstiges: '+entries[i][7]+'<br />';
+            html+='Telefon '+entries[i][4]+'<br />';
+            html+='Gesellschaft: '+entries[i][5]+'<br />';
+            html+='Anzahl: '+entries[i][6]+' / davon Frauen: '+entries[i][7]+'<br />';
+            html+='Sonstiges: '+entries[i][8]+'<br />';
             html+='eingeladen: ';
-            if(entries[i][8]=="on"){
+            if(entries[i][9]=="on"){
                 html+='<i class="fa fa-check"></i>'
             }else{
                 html+='<i class="fa fa-hacker-news"></i>'
             }
-            html+='<br />Eintrag hinzugefügt am: ' + entries[i][9];
+            //html+='<br />Eintrag hinzugefügt am: ' + entries[i][10];
+            html+='<button id="' + entries[i][0] + '" class="deleteEntry deleteButton" onclick="deleteEntry('+ entries[i][0] +')">Delete</button>';
             html+='</div></a>';
             innerHTML+=html;
         }
@@ -92,11 +132,11 @@
         var btn=document.getElementById("btn_einladen");
         if(chk.value=="off"){
             chk.value="on";
-            btn.textContent="Eingeladen";
+            btn.textContent="invited";
             btn.className="green";
         }else{
             chk.value="off";
-            btn.textContent="Einladen";
+            btn.textContent="Invite";
             btn.className="";
         }
     }
@@ -107,22 +147,23 @@
     <img src="./res/icon/android/mipmap-hdpi/ic_launcher.png" />
 
     <div id="menu">
-        <a onclick="goToHome();">Eintragen</a>
+        <a onclick="goToHome();">Invite</a>
         <a onclick="goToArchive();">History</a>
     </div>
     <div id="qr"></div>
     <div id="home">
         <div id="enteredName"></div>
         <div onclick="hideQR()" id="qrStart"></div>
-        <button id="save" onclick="saveEntries();">Speichern</button>
+        <button id="save" onclick="saveEntries();">Save</button>
         <select id="event">
             <option>Event 1</option>
             <option>Event 2</option>
             <option>Event 3</option>
             <option>Event 4</option>
         </select>
-        <input type="text" id="Vorname" name="Name" placeholder="Name" />
-        <input type="text" id="Nachname" name="Nachname" placeholder="Vorname" />
+        <input type="text" id="Vorname" name="Name" placeholder="Lastname" />
+        <input type="text" id="Nachname" name="Nachname" placeholder="Firstname" />
+        <input type="number" id="Telefon" name="Telefon" placeholder="Phone" />
 
         <select id="Gesellschaft">
             <option>Reisegesellschaft 1</option>
@@ -130,11 +171,11 @@
             <option>Reisegesellschaft 3</option>
             <option>Reisegesellschaft 4</option>
         </select>
-        <input type="number" id="Anzahl" name="gesamt" placeholder="Anzahl Personen" />
-        <input type="number" id="Frauen" name="Frauen" placeholder="davon Frauen" />
-        <textarea name="sonstiges" id="notizen" cols="35" rows="4" placeholder="Notizen"></textarea>
+        <input type="number" id="Anzahl" name="gesamt" placeholder="Amount of people" />
+        <input type="number" id="Frauen" name="Frauen" placeholder="Girls" />
+        <textarea name="sonstiges" id="notizen" cols="35" rows="4" placeholder="Notice"></textarea>
         <br />
-        <button onClick="einladen();" id="btn_einladen">Einladen</button>
+        <button onClick="einladen();" id="btn_einladen">Invite</button>
         <input type="checkbox" id="einladen" name="einladen" />
 
 

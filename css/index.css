@@ -36,10 +36,6 @@ textarea{
     height:6em;
 }
 
-select,button{
-    background:beige;
-}
-
 .green{
     background:greenyellow;
 }
@@ -50,6 +46,18 @@ select,button{
 
 button,select{
     border-radius:18px;
+    background:beige;
+}
+
+.deleteButton{
+    float:right;
+    margin-top:-5em;
+    width:100px;
+    height:30px;
+}
+
+.deleteEntry{
+    display:none;
 }
 
 #save{
