@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title></title>
     <script type="text/javascript" src="./data/qrcodejs/qrcode.js"></script>
-    <script type=”text/javascript” src=”./data/language/messages.{{ app.session.getLocale() }}.js”></script>
     <link rel="stylesheet" href="./css/font-awesome-4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/index.css">
 </head>
@@ -43,21 +42,22 @@
         var anzahl=document.getElementById("Anzahl").value;
         var frauen=document.getElementById("Frauen").value;
         var notizen=document.getElementById("notizen").value;
-        var paid=document.getElementById("paid").value;
+        var paid=document.getElementById("paid").checked;
 
         var Wochentag = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch","Donnerstag", "Freitag", "Samstag");
         entries.unshift(new Array(code,event,vorname,nachname,tel,gesellschaft,anzahl,frauen,notizen,paid,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
         localStorage.summerrockzentries=JSON.stringify(entries);
         createEtikQR(vorname+ " " + nachname);
 
-        document.getElementById("etik_event").innerHTML="Event: " + event;
+        document.getElementById("etik_header").innerHTML="E-Ticket for " + event;
         document.getElementById("etik_name").innerHTML="Name: " + vorname + " " + nachname;
         document.getElementById("etik_Telefon").innerHTML="Phone: " + tel;
-        document.getElementById("etik_Anzahl").innerHTML=anzahl;
-        document.getElementById("etik_Frauen").innerHTML=frauen;
-        document.getElementById("etik_notizen").value=notizen;
-        if(paid!="off"){
-            document.getElementById("etik_paid").value="on";
+        document.getElementById("etik_Anzahl").innerHTML="Amount of people: " + anzahl;
+        document.getElementById("etik_Frauen").innerHTML="Girls: " + frauen;
+        if(paid){
+            document.getElementById("etik_paid").innerHTML='<i class="fa fa-check"></i>';
+        }else{
+            document.getElementById("etik_paid").innerHTML='<i class="fa fa-hacker-news"></i>';
         }
 
         document.getElementById("home").style.display='none';
@@ -71,6 +71,7 @@
         document.getElementById("qr").style.display='none';
         document.getElementById("archiveLink").className="";
         document.getElementById("homeLink").className="menuActivated";
+        document.getElementById("eticket").style.display='none';
     }
 
     function goToArchive(){
@@ -78,6 +79,7 @@
         document.getElementById("home").style.display='none';
         document.getElementById("homeLink").className="";
         document.getElementById("archiveLink").className="menuActivated";
+        document.getElementById("eticket").style.display='none';
         buildArchive();
     }
 
@@ -128,7 +130,6 @@
             }
             i++;
         }
-        localStorage.summerrockzentries.clear;
         localStorage.summerrockzentries=JSON.stringify(entries);
         buildArchive();
     }
@@ -139,7 +140,7 @@
         var entries=getEntries();
         var innerHTML="";
         for(var i= 0; i<entries.length;i++){
-            html='<a><div id="entry" onclick="createQR(' + "'" + entries[i][1] + entries[i][2] + "'" + ')">';
+            html='<a><div id="entry" onclick="createQR(' + "'" + entries[i][0] + "'" + ')">';
             html+='Event: '+entries[i][1]+'<br />';
             html+='Name: '+entries[i][2]+' '+entries[i][3]+'<br />';
             html+='Phone: '+entries[i][4]+'<br />';
@@ -147,7 +148,7 @@
             html+='Amount of people: '+entries[i][6]+' / Girls: '+entries[i][7]+'<br />';
             html+='Notice: '+entries[i][8]+'<br />';
             html+='invited: ';
-            if(entries[i][9]=="on"){
+            if(entries[i][9]){
                 html+='<i class="fa fa-check"></i>'
             }else{
                 html+='<i class="fa fa-hacker-news"></i>'
@@ -157,8 +158,14 @@
             html+='</div></a>';
             innerHTML+=html;
         }
+        innerHTML+='<button onClick="deleteAll();">Delete all</button>';
         document.getElementById("archive").innerHTML='<div id="qr"></div><div id="archiveEntries" style="height:300px;overflow:auto;">'+innerHTML+'</div>';
         createQR(entries[0][0]);
+    }
+
+    function deleteAll(){
+        localStorage.removeItem("summerrockzentries");
+        goToHome();
     }
 
     function einladen(){
@@ -216,28 +223,22 @@
         </table>
         <textarea name="sonstiges" id="notizen" cols="35" rows="4" placeholder="Notice"></textarea>
         <br />
-        <button onClick="saveEntries();" id="btn_einladen">Invite</button>
         Full paid <input type="checkbox" id="paid" name="paid" />
+        <button onClick="saveEntries();" id="btn_einladen">Invite</button>
+
 
 
     </div>
     <div id="archive"></div>
     <div id="eticket">
-
+    <h3 id="etik_header">E</h3>
         <div id="etik_qr"></div>
-        <div id="etik_event"></div>
         <div id="etik_name"></div>
         <div id="etik_Telefon"></div>
-
-        <table>
-            <tr>
-                <td><div id="etik_Anzahl"></div></td>
-                <td><div id="etik_Frauen"></div></td>
-            </tr>
-        </table>
-        <textarea id="etik_notizen" contenteditable="false" cols="35" rows="4" placeholder="Notice"></textarea>
+        <div id="etik_Anzahl"></div>
+        <div id="etik_Frauen"></div>
         <br />
-        Full paid <input type="checkbox" id="etik_paid" contenteditable="false" />
+        Full paid <span id="etik_paid"></span>
     </div>
 
 </div>
@@ -248,6 +249,7 @@
     qr=new QRCode(document.getElementById("qr"),"");
     etikqr=new QRCode(document.getElementById("etik_qr"),"");
     document.getElementById("eticket").style.display='none';
+    localStorage.removeItem("summerrockzentries");
 
 </script>
 
