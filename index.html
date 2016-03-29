@@ -34,27 +34,27 @@
         var code=Math.random();
         var date=new Date();
 
-        var event=document.getElementById("event").value;
-        var vorname=document.getElementById("Vorname").value;
-        var nachname=document.getElementById("Nachname").value;
-        var tel=document.getElementById("Telefon").value;
-        var gesellschaft=document.getElementById("Gesellschaft").value;
-        var anzahl=document.getElementById("Anzahl").value;
-        var frauen=document.getElementById("Frauen").value;
-        var notizen=document.getElementById("notizen").value;
-        var paid=document.getElementById("paid").checked;
+        var event=document.getElementById("event");
+        var vorname=document.getElementById("Vorname");
+        var nachname=document.getElementById("Nachname");
+        var tel=document.getElementById("Telefon");
+        var gesellschaft=document.getElementById("Gesellschaft");
+        var anzahl=document.getElementById("Anzahl");
+        var frauen=document.getElementById("Frauen");
+        var notizen=document.getElementById("notizen");
+        var paid=document.getElementById("paid");
 
         var Wochentag = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch","Donnerstag", "Freitag", "Samstag");
-        entries.unshift(new Array(code,event,vorname,nachname,tel,gesellschaft,anzahl,frauen,notizen,paid,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
+        entries.unshift(new Array(code,event.value,vorname.value,nachname.value,tel.value,gesellschaft.value,anzahl.value,frauen.value,notizen.value,paid.checked,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
         localStorage.summerrockzentries=JSON.stringify(entries);
         createEtikQR(vorname+ " " + nachname);
 
-        document.getElementById("etik_header").innerHTML="E-Ticket for " + event;
-        document.getElementById("etik_name").innerHTML="Name: " + vorname + " " + nachname;
-        document.getElementById("etik_Telefon").innerHTML="Phone: " + tel;
-        document.getElementById("etik_Anzahl").innerHTML="Amount of people: " + anzahl;
-        document.getElementById("etik_Frauen").innerHTML="Girls: " + frauen;
-        if(paid){
+        document.getElementById("etik_header").innerHTML="E-Ticket for " + event.value;
+        document.getElementById("etik_name").innerHTML="Name: " + vorname.value + " " + nachname.value;
+        document.getElementById("etik_Telefon").innerHTML="Phone: " + tel.value;
+        document.getElementById("etik_Anzahl").innerHTML="Amount of people: " + anzahl.value;
+        document.getElementById("etik_Frauen").innerHTML="Girls: " + frauen.value;
+        if(paid.checked){
             document.getElementById("etik_paid").innerHTML='<i class="fa fa-check"></i>';
         }else{
             document.getElementById("etik_paid").innerHTML='<i class="fa fa-close"></i>';
@@ -63,13 +63,13 @@
         document.getElementById("home").style.display='none';
         document.getElementById("eticket").style.display='block';
 
-        vorname="";
-        nachname="";
-        tel="";
-        anzahl="";
-        frauen="";
-        notizen="";
-        paid=false;
+        vorname.value="";
+        nachname.value="";
+        tel.value="";
+        anzahl.value="";
+        frauen.value="";
+        notizen.value="";
+        paid.checked=false;
 
     }
 

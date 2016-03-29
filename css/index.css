@@ -37,7 +37,7 @@ BODY{
     color:white;
 }
 
-input{
+input, textarea{
     color:black;
 }
 
