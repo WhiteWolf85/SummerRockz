@@ -118,6 +118,7 @@ button,select{
 }
 
 #header{
+    margin-top:1.5em;
     margin-left:90px;
     margin-bottom:2em;
 }
