@@ -34,10 +34,35 @@
         entries=getEntries();
         var code=Math.random();
         var date=new Date();
+
+        var event=document.getElementById("event").value;
+        var vorname=document.getElementById("Vorname").value;
+        var nachname=document.getElementById("Nachname").value;
+        var tel=document.getElementById("Telefon").value;
+        var gesellschaft=document.getElementById("Gesellschaft").value;
+        var anzahl=document.getElementById("Anzahl").value;
+        var frauen=document.getElementById("Frauen").value;
+        var notizen=document.getElementById("notizen").value;
+        var paid=document.getElementById("paid").value;
+
         var Wochentag = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch","Donnerstag", "Freitag", "Samstag");
-        entries.unshift(new Array(code,document.getElementById("event").value,document.getElementById("Vorname").value,document.getElementById("Nachname").value,document.getElementById("Telefon").value,document.getElementById("Gesellschaft").value,document.getElementById("Anzahl").value,document.getElementById("Frauen").value,document.getElementById("notizen").value,document.getElementById("einladen").value,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
+        entries.unshift(new Array(code,event,vorname,nachname,tel,gesellschaft,anzahl,frauen,notizen,paid,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
         localStorage.summerrockzentries=JSON.stringify(entries);
-        createQR(code);
+        createEtikQR(vorname+ " " + nachname);
+
+        document.getElementById("etik_event").innerHTML="Event: " + event;
+        document.getElementById("etik_name").innerHTML="Name: " + vorname + " " + nachname;
+        document.getElementById("etik_Telefon").innerHTML="Phone: " + tel;
+        document.getElementById("etik_Anzahl").innerHTML=anzahl;
+        document.getElementById("etik_Frauen").innerHTML=frauen;
+        document.getElementById("etik_notizen").value=notizen;
+        if(paid!="off"){
+            document.getElementById("etik_paid").value="on";
+        }
+
+        document.getElementById("home").style.display='none';
+        document.getElementById("eticket").style.display='block';
+
     }
 
     function goToHome(){
@@ -60,6 +85,11 @@
         qr.makeCode(code);
         document.getElementById("qr").style.display='block';
         showDeleteButton(code);
+    }
+
+    function createEtikQR(code){
+        etikqr.makeCode(code);
+        document.getElementById("etik_qr").style.display='block';
     }
 
     function hideQR(){
@@ -109,7 +139,7 @@
         var entries=getEntries();
         var innerHTML="";
         for(var i= 0; i<entries.length;i++){
-            html='<a><div id="entry" onclick="createQR('+"'"+entries[i][0]+"'"+')">';
+            html='<a><div id="entry" onclick="createQR(' + "'" + entries[i][1] + entries[i][2] + "'" + ')">';
             html+='Event: '+entries[i][1]+'<br />';
             html+='Name: '+entries[i][2]+' '+entries[i][3]+'<br />';
             html+='Phone: '+entries[i][4]+'<br />';
@@ -155,7 +185,7 @@
         <div onclick="goToArchive();" id="archiveLink" class>History</div>
     </div>
     <div id="qr"></div>
-    <table id="home">
+    <div id="home">
         <div id="enteredName"></div>
         <div onclick="hideQR()" id="qrStart"></div>
         <select id="event">
@@ -167,10 +197,10 @@
         <table>
             <tr>
                 <td><input type="text" id="Vorname" name="Name" placeholder="Lastname" /></td>
-            <td><input type="text" id="Nachname" name="Nachname" placeholder="Firstname" /></td>
+                <td><input type="text" id="Nachname" name="Nachname" placeholder="Firstname" /></td>
             </tr>
-</table>
-            <input type="number" id="Telefon" name="Telefon" placeholder="Phone" />
+        </table>
+        <input type="number" id="Telefon" name="Telefon" placeholder="Phone" />
 
         <select id="Gesellschaft">
             <option>Reisegesellschaft 1</option>
@@ -183,22 +213,41 @@
                 <td><input type="number" id="Anzahl" name="gesamt" placeholder="Amount of people" /></td>
                 <td><input type="number" id="Frauen" name="Frauen" placeholder="Girls" /></td>
             </tr>
-            </table>
+        </table>
         <textarea name="sonstiges" id="notizen" cols="35" rows="4" placeholder="Notice"></textarea>
         <br />
         <button onClick="saveEntries();" id="btn_einladen">Invite</button>
-        <input type="checkbox" id="einladen" name="einladen" />
+        Full paid <input type="checkbox" id="paid" name="paid" />
 
 
     </div>
     <div id="archive"></div>
+    <div id="eticket">
+
+        <div id="etik_qr"></div>
+        <div id="etik_event"></div>
+        <div id="etik_name"></div>
+        <div id="etik_Telefon"></div>
+
+        <table>
+            <tr>
+                <td><div id="etik_Anzahl"></div></td>
+                <td><div id="etik_Frauen"></div></td>
+            </tr>
+        </table>
+        <textarea id="etik_notizen" contenteditable="false" cols="35" rows="4" placeholder="Notice"></textarea>
+        <br />
+        Full paid <input type="checkbox" id="etik_paid" contenteditable="false" />
+    </div>
+
 </div>
 <script type="text/javascript">
     document.getElementById("archive").style.display='none';
     document.getElementById("enteredName").style.display='none';
     document.getElementById("qr").style.display='none';
     qr=new QRCode(document.getElementById("qr"),"");
-    document.getElementById("einladen").value="off";
+    etikqr=new QRCode(document.getElementById("etik_qr"),"");
+    document.getElementById("eticket").style.display='none';
 
 </script>
 
