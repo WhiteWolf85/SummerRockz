@@ -57,11 +57,19 @@
         if(paid){
             document.getElementById("etik_paid").innerHTML='<i class="fa fa-check"></i>';
         }else{
-            document.getElementById("etik_paid").innerHTML='<i class="fa fa-hacker-news"></i>';
+            document.getElementById("etik_paid").innerHTML='<i class="fa fa-close"></i>';
         }
 
         document.getElementById("home").style.display='none';
         document.getElementById("eticket").style.display='block';
+
+        vorname="";
+        nachname="";
+        tel="";
+        anzahl="";
+        frauen="";
+        notizen="";
+        paid=false;
 
     }
 
@@ -151,14 +159,14 @@
             if(entries[i][9]){
                 html+='<i class="fa fa-check"></i>'
             }else{
-                html+='<i class="fa fa-hacker-news"></i>'
+                html+='<i class="fa fa-close"></i>'
             }
             //html+='<br />Eintrag hinzugefügt am: ' + entries[i][10];
             html+='<p><button id="' + entries[i][0] + '" class="deleteEntry deleteButton" onclick="deleteEntry('+ entries[i][0] +')">Delete</button></p>';
             html+='</div></a>';
             innerHTML+=html;
         }
-        innerHTML+='<button onClick="deleteAll();">Delete all</button>';
+        innerHTML+='<button id="deleteAll" onClick="deleteAll();">Delete all</button>';
         document.getElementById("archive").innerHTML='<div id="qr"></div><div id="archiveEntries" style="height:300px;overflow:auto;">'+innerHTML+'</div>';
         createQR(entries[0][0]);
     }
@@ -185,8 +193,8 @@
 
 </script>
 <div id="content">
-    <img src="./res/icon/android/mipmap-hdpi/ic_launcher.png" />
-
+    <img id="logo" src="./res/icon/android/mipmap-hdpi/ic_launcher.png" />
+    <h3 id="header">Summerrockz Event Organizer</h3>
     <div id="menu">
         <div onclick="goToHome();" id="homeLink" class="menuActivated">Invite</div>
         <div onclick="goToArchive();" id="archiveLink" class>History</div>
