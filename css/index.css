@@ -47,6 +47,10 @@ select{
     width: 100%;
 }
 
+#paid{
+    display:inline;
+}
+
 #firstP{
     width:100%;
 }
@@ -107,10 +111,12 @@ button,select{
 
 #logo{
     float:left;
+    margin-bottom:2em;
 }
 
 #header{
-    margin-bottom:2em;
+    float:left;
+    margin-left:30px;
 }
 
 #home div{
@@ -142,5 +148,9 @@ button,select{
 #qr,#etik_qr{
     width:280px;
     margin-bottom:2em;
+}
+
+#btn_einladen{
+    margin-top:1.5em;
 }
 
