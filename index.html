@@ -155,7 +155,7 @@
         <div onclick="goToArchive();" id="archiveLink" class>History</div>
     </div>
     <div id="qr"></div>
-    <div id="home">
+    <table id="home">
         <div id="enteredName"></div>
         <div onclick="hideQR()" id="qrStart"></div>
         <select id="event">
@@ -164,22 +164,26 @@
             <option>Event 3</option>
             <option>Event 4</option>
         </select>
-        <div id="firstP">
-            <input type="text" id="Vorname" name="Name" placeholder="Lastname" />
-            <input type="text" id="Nachname" name="Nachname" placeholder="Firstname" />
-
+        <table>
+            <tr>
+                <td><input type="text" id="Vorname" name="Name" placeholder="Lastname" /></td>
+            <td><input type="text" id="Nachname" name="Nachname" placeholder="Firstname" /></td>
+            </tr>
+</table>
             <input type="number" id="Telefon" name="Telefon" placeholder="Phone" />
-        </div>
+
         <select id="Gesellschaft">
             <option>Reisegesellschaft 1</option>
             <option>Reisegesellschaft 2</option>
             <option>Reisegesellschaft 3</option>
             <option>Reisegesellschaft 4</option>
         </select>
-        <div id="secondP">
-        <input type="number" id="Anzahl" name="gesamt" placeholder="Amount of people" />
-        <input type="number" id="Frauen" name="Frauen" placeholder="Girls" />
-            </div>
+        <table>
+            <tr>
+                <td><input type="number" id="Anzahl" name="gesamt" placeholder="Amount of people" /></td>
+                <td><input type="number" id="Frauen" name="Frauen" placeholder="Girls" /></td>
+            </tr>
+            </table>
         <textarea name="sonstiges" id="notizen" cols="35" rows="4" placeholder="Notice"></textarea>
         <br />
         <button onClick="saveEntries();" id="btn_einladen">Invite</button>

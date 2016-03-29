@@ -24,17 +24,21 @@ BODY{
     margin-bottom:1em;
 }
 
-#home select,textarea,#btn_einladen{
+#home select,input,textarea,#btn_einladen{
     display: block;
     margin-left:auto;
     margin-right:auto;
     margin-top:0.2em;
-    width:98%;
+    width:100%;
     height:1.5em;
     font-size:large;
 }
 
-#firstP #Telefon{
+select{
+    width:100%;
+}
+
+#Telefon{
     width: 100%;
 }
 
@@ -51,6 +55,9 @@ BODY{
     height:100%;
 }
 
+table{
+    width:100%;
+}
 
 
 .menuActivated{
