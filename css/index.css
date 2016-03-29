@@ -7,6 +7,9 @@ a:hover{
 
 BODY{
     font-size: larger;
+    background:url("../res/background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #menu{
