@@ -164,22 +164,22 @@
             <option>Event 3</option>
             <option>Event 4</option>
         </select>
-        <p id="firstP">
-        <input type="text" id="Vorname" name="Name" placeholder="Lastname" />
-        <input type="text" id="Nachname" name="Nachname" placeholder="Firstname" />
-            </p>
-        <input type="number" id="Telefon" name="Telefon" placeholder="Phone" />
+        <div id="firstP">
+            <input type="text" id="Vorname" name="Name" placeholder="Lastname" />
+            <input type="text" id="Nachname" name="Nachname" placeholder="Firstname" />
 
+            <input type="number" id="Telefon" name="Telefon" placeholder="Phone" />
+        </div>
         <select id="Gesellschaft">
             <option>Reisegesellschaft 1</option>
             <option>Reisegesellschaft 2</option>
             <option>Reisegesellschaft 3</option>
             <option>Reisegesellschaft 4</option>
         </select>
-        <p>
+        <div id="secondP">
         <input type="number" id="Anzahl" name="gesamt" placeholder="Amount of people" />
         <input type="number" id="Frauen" name="Frauen" placeholder="Girls" />
-            </p>
+            </div>
         <textarea name="sonstiges" id="notizen" cols="35" rows="4" placeholder="Notice"></textarea>
         <br />
         <button onClick="saveEntries();" id="btn_einladen">Invite</button>

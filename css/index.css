@@ -29,13 +29,20 @@ BODY{
     margin-left:auto;
     margin-right:auto;
     margin-top:0.2em;
-    width:100%;
+    width:98%;
     height:1.5em;
     font-size:large;
 }
 
+#firstP #Telefon{
+    width: 100%;
+}
+
 #firstP{
     width:100%;
+}
+#firstP input, #secondP input{
+    width:49.6%;
 }
 
 #homeLink,#archiveLink{
