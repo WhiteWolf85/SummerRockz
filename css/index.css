@@ -25,6 +25,7 @@ BODY{
     align-items:center;
     margin-bottom:0.2em;
     color:black;
+    text-shadow:none;
 }
 
 #home select,input,textarea,#btn_einladen{
