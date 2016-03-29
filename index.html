@@ -158,14 +158,13 @@
     <div id="home">
         <div id="enteredName"></div>
         <div onclick="hideQR()" id="qrStart"></div>
-        <button id="save" onclick="saveEntries();">Save</button>
         <select id="event">
             <option>Event 1</option>
             <option>Event 2</option>
             <option>Event 3</option>
             <option>Event 4</option>
         </select>
-        <p>
+        <p id="firstP">
         <input type="text" id="Vorname" name="Name" placeholder="Lastname" />
         <input type="text" id="Nachname" name="Nachname" placeholder="Firstname" />
             </p>
@@ -183,7 +182,7 @@
             </p>
         <textarea name="sonstiges" id="notizen" cols="35" rows="4" placeholder="Notice"></textarea>
         <br />
-        <button onClick="einladen();" id="btn_einladen">Invite</button>
+        <button onClick="saveEntries();" id="btn_einladen">Invite</button>
         <input type="checkbox" id="einladen" name="einladen" />
 
 
