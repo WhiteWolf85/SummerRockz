@@ -129,7 +129,8 @@ button,select{
     background-color: white;
     color:black;
     text-shadow: none;
-    height:500px;
+    height: 500px;
+    padding-top:3em;
 }
 
 #archive,#qr,#etik_qr{
