@@ -54,6 +54,7 @@
         //document.getElementById("etik_Telefon").innerHTML="Phone: " + tel.value;
         document.getElementById("etik_Anzahl").innerHTML="Amount of people: " + anzahl.value;
         document.getElementById("etik_Frauen").innerHTML="Girls: " + frauen.value;
+        document.getElementById("etik_notice").innerHTML="Notice: " + notizen.value;
         if(paid.checked){
             document.getElementById("etik_paid").innerHTML='<i class="fa fa-check"></i>';
         }else{
@@ -254,6 +255,8 @@
         <div id="etik_name"></div>
         <div id="etik_Anzahl"></div>
         <div id="etik_Frauen"></div>
+        <br />
+        <div id="etik_notice"></div>
         <br />
         deposit paid <span id="etik_paid"></span>
     </div>

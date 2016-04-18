@@ -129,6 +129,7 @@ button,select{
     background-color: white;
     color:black;
     text-shadow: none;
+    height:500px;
 }
 
 #archive,#qr,#etik_qr{
