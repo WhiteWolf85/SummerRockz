@@ -125,6 +125,12 @@ button,select{
     text-align:center;
 }
 
+#eticket{
+    background-color: white;
+    color:black;
+    text-shadow: none;
+}
+
 #archive,#qr,#etik_qr{
     text-align: left;
     margin-left:auto;

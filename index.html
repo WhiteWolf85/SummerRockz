@@ -47,11 +47,11 @@
         var Wochentag = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch","Donnerstag", "Freitag", "Samstag");
         entries.unshift(new Array(code,event.value,vorname.value,nachname.value,tel.value,gesellschaft.value,anzahl.value,frauen.value,notizen.value,paid.checked,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
         localStorage.summerrockzentries=JSON.stringify(entries);
-        createEtikQR(vorname+ " " + nachname);
+        //createEtikQR(vorname+ " " + nachname);
 
         document.getElementById("etik_header").innerHTML="E-Ticket for " + event.value;
         document.getElementById("etik_name").innerHTML="Name: " + vorname.value + " " + nachname.value;
-        document.getElementById("etik_Telefon").innerHTML="Phone: " + tel.value;
+        //document.getElementById("etik_Telefon").innerHTML="Phone: " + tel.value;
         document.getElementById("etik_Anzahl").innerHTML="Amount of people: " + anzahl.value;
         document.getElementById("etik_Frauen").innerHTML="Girls: " + frauen.value;
         if(paid.checked){
@@ -195,7 +195,7 @@
 <table>
     <tr>
         <td><img id="logo" src="./res/icon/android/mipmap-hdpi/ic_launcher.png" /></td>
-        <td><div id="header">Summerrockz Event Organizer</div></td>
+        <td><div id="header">Summerrockz Event Organizer Lloret</div></td>
     </tr>
 </table>
 <div id="content">
@@ -203,13 +203,18 @@
         <div onclick="goToHome();" id="homeLink" class="menuActivated">Invite</div>
         <div onclick="goToArchive();" id="archiveLink" class>History</div>
     </div>
-    <div id="qr"></div>
+    <!--<div id="qr"></div>-->
     <div id="home">
         <div id="enteredName"></div>
-        <div onclick="hideQR()" id="qrStart"></div>
+        <!--<div onclick="hideQR()" id="qrStart"></div>-->
         <select id="event">
             <option>Lloret Selected</option>
-            <option>Pacha</option>
+            <option>Varcelona Pacha</option>
+            <option>Fluo Party</option>
+            <option>Catamaran Party</option>
+            <option>Barcelona by night</option>
+            <option>Party</option>
+            <option>Pool Party</option>
         </select>
         <table>
             <tr>
@@ -236,7 +241,7 @@
         </table>
         <textarea name="sonstiges" id="notizen" cols="35" rows="4" placeholder="Notice"></textarea>
         <br />
-        Full paid <input type="checkbox" id="paid" name="paid" />
+        deposit paid <input type="checkbox" id="paid" name="paid" />
         <button onClick="saveEntries();" id="btn_einladen">Invite</button>
 
 
@@ -244,14 +249,13 @@
     </div>
     <div id="archive"></div>
     <div id="eticket">
-    <h3 id="etik_header">E</h3>
-        <div id="etik_qr"></div>
+        <h3 id="etik_header">E-Ticket</h3>
+        <!--<div id="etik_qr"></div>-->
         <div id="etik_name"></div>
-        <div id="etik_Telefon"></div>
         <div id="etik_Anzahl"></div>
         <div id="etik_Frauen"></div>
         <br />
-        Full paid <span id="etik_paid"></span>
+        deposit paid <span id="etik_paid"></span>
     </div>
 
 </div>
