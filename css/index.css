@@ -8,7 +8,7 @@ a:hover{
 BODY{
     font-size: larger;
     background:url("../res/backgroundLandscape.png");
-    background-size:auto 100%;
+    background-size:contain;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color:white;
