@@ -50,11 +50,11 @@
         //createEtikQR(vorname+ " " + nachname);
 
         document.getElementById("etik_header").innerHTML="E-Ticket for " + event.value;
-        document.getElementById("etik_name").innerHTML="Name: " + vorname.value + " " + nachname.value;
+        document.getElementById("etik_name").innerHTML='<span class="grey">Name:</span> ' + vorname.value + " " + nachname.value;
         //document.getElementById("etik_Telefon").innerHTML="Phone: " + tel.value;
-        document.getElementById("etik_Anzahl").innerHTML="Amount of people: " + anzahl.value;
-        document.getElementById("etik_Frauen").innerHTML="Girls: " + frauen.value;
-        document.getElementById("etik_notice").innerHTML="Notice: " + notizen.value;
+        document.getElementById("etik_Anzahl").innerHTML='<span class="grey">Amount of people:</span> ' + anzahl.value;
+        document.getElementById("etik_Frauen").innerHTML='<span class="grey">Girls:</span> ' + frauen.value;
+        document.getElementById("etik_notice").innerHTML='<span class="grey">Notice:</span> ' + notizen.value;
         if(paid.checked){
             document.getElementById("etik_paid").innerHTML='<i class="fa fa-check"></i>';
         }else{
@@ -147,7 +147,7 @@
 
 
         var entries=getEntries();
-        var innerHTML="";
+        var innerHTML='<div id="entryBackground">';
         for(var i= 0; i<entries.length;i++){
             html='<a><div id="entry" onclick="showDeleteButton(' + "'" + entries[i][0] + "'" + ')">';
             html+='Event: '+entries[i][1]+'<br />';
@@ -167,7 +167,7 @@
             html+='</div></a>';
             innerHTML+=html;
         }
-        innerHTML+='<button id="deleteAll" onClick="deleteAll();">Delete all</button>';
+        innerHTML+='<button id="deleteAll" onClick="deleteAll();">Delete all</button></div>';
         document.getElementById("archive").innerHTML='<div id="qr"></div><div id="archiveEntries" style="height:300px;overflow:auto;">'+innerHTML+'</div>';
         //createQR(entries[0][0]);
     }
@@ -259,6 +259,7 @@
         <div id="etik_notice"></div>
         <br />
         deposit paid <span id="etik_paid"></span>
+        <img src="res/barcode.gif" />
     </div>
 
 </div>

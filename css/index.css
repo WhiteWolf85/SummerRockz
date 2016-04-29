@@ -126,12 +126,27 @@ button,select{
     text-align:center;
 }
 
+.grey{
+    color:lightgrey;
+}
+
 #eticket{
+    font-family: Arial;
+    border:2px inset grey;
     background-color: white;
     color:black;
     text-shadow: none;
-    height: 500px;
-    padding-top:3em;
+    text-align: left;
+    padding-left:1em;
+    width:auto;
+}
+
+#eticket IMG{
+    height:4em;
+    width: 12em;
+    margin-top:1em;
+    margin-bottom:1em;
+    display:block;
 }
 
 #archive,#qr,#etik_qr{
@@ -150,6 +165,13 @@ button,select{
 
 #entry{
     margin-bottom:1em;
+    opacity: 1;
+    z-index:2;
+}
+#entryBackground{
+    background-color: lightgray;
+    opacity: 0.4;
+    z-index:1;
 }
 
 #qr,#etik_qr{
