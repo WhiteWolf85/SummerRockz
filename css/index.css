@@ -5,9 +5,20 @@ a:hover{
     color:#d93658;
 }
 
+@media only screen and (min-width: 500px){
+    BODY {
+        background: url("../res/backgroundLandscape.png");
+    }
+}
+@media only screen and (max-width: 500px){
+    BODY {
+        background: url("../res/backgroundPortrait.png.png");
+    }
+}
+
 BODY{
     font-size: larger;
-    background:url("../res/backgroundLandscape.png");
+
     background-size:contain;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -141,9 +152,13 @@ button,select{
     width:auto;
 }
 
+#etik_header{
+    text-align: center;
+}
+
 #eticket IMG{
     height:4em;
-    width: 12em;
+    width: 90%;
     margin-top:1em;
     margin-bottom:1em;
     display:block;
