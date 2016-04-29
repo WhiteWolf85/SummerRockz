@@ -16,9 +16,12 @@ a:hover{
     }
 }
 
+HTML{
+    width:100%;
+}
+
 BODY{
     font-size: larger;
-
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
