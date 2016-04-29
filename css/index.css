@@ -189,11 +189,11 @@ button,select{
 #archiveEntries{
     //background-color: #d93658;
     //opacity: 0.4;
-    
+
 }
 
-#archive{
-    height: 100%;
+#entryBackground{
+    height:100%;
 }
 
 #entry{
