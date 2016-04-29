@@ -46,8 +46,6 @@ BODY{
 
 #home select,input,textarea,#btn_einladen{
     display: block;
-    margin-left:auto;
-    margin-right:auto;
     margin-top:0.2em;
     width:100%;
     height:1.5em;
@@ -139,6 +137,10 @@ button,select{
 
 #content{
     text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    height: 100%;
+    width:100%;
 }
 
 .grey{
@@ -173,8 +175,6 @@ button,select{
 
 #archive,#qr,#etik_qr{
     text-align: left;
-    margin-left:auto;
-    margin-right:auto;
     width: 100%;
 }
 
