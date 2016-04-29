@@ -196,7 +196,7 @@ button,select{
     height:100%;
 }
 
-#entry{
+.entry{
     margin-bottom:1em;
     opacity: 1;
     background-color: #d93658;
@@ -214,5 +214,14 @@ button,select{
     margin-top:1.5em;
     margin-bottom:2em;
     height:2em;
+}
+
+#feeter, #feeter A{
+    width: 100%;
+    font-size: 0.8em;
+    color:white;
+    text-decoration: none;
+    text-align: center;
+
 }
 

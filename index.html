@@ -149,7 +149,7 @@
         var entries=getEntries();
         var innerHTML='';
         for(var i= 0; i<entries.length;i++){
-            html='<a><div id="entry" onclick="showDeleteButton(' + "'" + entries[i][0] + "'" + ')">';
+            html='<div class="entry" onclick="showDeleteButton(' + "'" + entries[i][0] + "'" + ')"><a>';
             html+='Event: '+entries[i][1]+'<br />';
             html+='Name: '+entries[i][2]+' '+entries[i][3]+'<br />';
             html+='Phone: '+entries[i][4]+'<br />';
@@ -163,12 +163,13 @@
                 html+='<i class="fa fa-close"></i>'
             }
             //html+='<br />Eintrag hinzugefügt am: ' + entries[i][10];
+            html+='</a></div>';
             html+='<p><button id="' + entries[i][0] + '" class="deleteEntry deleteButton" onclick="deleteEntry('+ entries[i][0] +')">Delete</button></p>';
-            html+='</div></a>';
             innerHTML+=html;
         }
         innerHTML+='<button id="deleteAll" onClick="deleteAll();">Delete all</button></div>';
         document.getElementById("archive").innerHTML='<div id="archiveEntries" style="height:300px;overflow:auto;">'+innerHTML+'</div>';
+        var text=document.getElementById("archive").innerHTML;
         //createQR(entries[0][0]);
     }
 
@@ -273,6 +274,6 @@
     document.getElementById("eticket").style.display='none';
 
 </script>
-
+<div id="feeter"><a href="http://www.futuretec-systems.de">FutureTec Systems UG</a></div>
 </body>
 </html>
