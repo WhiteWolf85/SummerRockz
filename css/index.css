@@ -17,10 +17,11 @@ a:hover{
 }
 
 HTML{
-    width:100%;
+    height:100%;
 }
 
 BODY{
+    height:100%;
     font-size: larger;
     background-size: cover;
     background-repeat: no-repeat;
