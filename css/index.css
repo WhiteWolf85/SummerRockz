@@ -156,8 +156,11 @@ button,select{
     width:auto;
 }
 
-#etik_header{
+#etik_header, #etik_tax{
     text-align: center;
+}
+#etik_tax{
+    margin-top:1.5em;
 }
 
 #eticket IMG{
