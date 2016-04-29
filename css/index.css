@@ -19,7 +19,7 @@ a:hover{
 BODY{
     font-size: larger;
 
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color:white;
