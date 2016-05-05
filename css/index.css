@@ -4,7 +4,7 @@ a:active{
 a:hover{
     color:black;
 }
-
+/*
 @media only screen and (min-width: 500px){
     BODY {
         background: url("../res/backgroundLandscape.png");
@@ -15,7 +15,7 @@ a:hover{
         background: url("../res/backgroundPortrait.png");
     }
 }
-
+*/
 HTML{
     height:100%;
 }
@@ -28,6 +28,7 @@ BODY{
     background-attachment: fixed;
     color:white;
     text-shadow: 0 0 1px black;
+    background: url("../res/backgroundLandscape.png");
 }
 
 #logo{
@@ -44,8 +45,8 @@ BODY{
     border:1px solid black;
     align-items:center;
     margin-bottom:0.2em;
-    color:black;
-    text-shadow:none;
+    color:white;
+    text-shadow: black;
 }
 
 #home select,input,textarea,#btn_einladen{
@@ -103,7 +104,7 @@ table{
 }
 
 #eticket_border{
-    padding:2em;
+    padding:0.7em;
     background-color: black;
 }
 

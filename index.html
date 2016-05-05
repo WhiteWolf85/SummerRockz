@@ -63,6 +63,7 @@
 
         document.getElementById("home").style.display='none';
         document.getElementById("eticket").style.display='block';
+        document.getElementById("eticket_border").style.display='block';
 
         vorname.value="";
         nachname.value="";
@@ -81,6 +82,7 @@
         document.getElementById("archiveLink").className="";
         document.getElementById("homeLink").className="menuActivated";
         document.getElementById("eticket").style.display='none';
+        document.getElementById("eticket_border").style.display='none';
     }
 
     function goToArchive(){
@@ -89,6 +91,7 @@
         document.getElementById("homeLink").className="";
         document.getElementById("archiveLink").className="menuActivated";
         document.getElementById("eticket").style.display='none';
+        document.getElementById("eticket_border").style.display='none';
         buildArchive();
     }
 
@@ -274,6 +277,7 @@
     //qr=new QRCode(document.getElementById("qr"),"");
     //etikqr=new QRCode(document.getElementById("etik_qr"),"");
     document.getElementById("eticket").style.display='none';
+    document.getElementById("eticket_border").style.display='none';
 
 </script>
 <!--<div id="feeter"><a href="http://www.futuretec-systems.de">FutureTec Systems UG</a></div>-->
