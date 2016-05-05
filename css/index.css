@@ -200,6 +200,7 @@ button,select{
     //background-color: #d93658;
     //opacity: 0.4;
     height:100%;
+    overflow: auto;
 
 }
 
