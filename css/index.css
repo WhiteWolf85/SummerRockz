@@ -102,6 +102,11 @@ table{
     display:none;
 }
 
+#eticket_border{
+    padding:2em;
+    background-color: black;
+}
+
 textarea{
     height:6em;
 }
