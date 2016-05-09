@@ -204,6 +204,11 @@ button,select{
 
 }
 
+#departure{
+    display:inline;
+    width:50%
+}
+
 #entryBackground{
     height:100%;
 }

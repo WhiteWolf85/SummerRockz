@@ -43,15 +43,18 @@
         var frauen=document.getElementById("Frauen");
         var notizen=document.getElementById("notizen");
         var paid=document.getElementById("paid");
+        var hotel=document.getElementById("hotel");
+        var departure=document.getElementById("departure");
 
         var Wochentag = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch","Donnerstag", "Freitag", "Samstag");
-        entries.unshift(new Array(code,event.value,vorname.value,nachname.value,tel.value,gesellschaft.value,anzahl.value,frauen.value,notizen.value,paid.checked,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
+        entries.unshift(new Array(code,event.value,vorname.value,nachname.value,tel.value,gesellschaft.value,anzahl.value,frauen.value,notizen.value,paid.checked,hotel.value,departure.value,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
         localStorage.summerrockzentries=JSON.stringify(entries);
         //createEtikQR(vorname+ " " + nachname);
 
         document.getElementById("etik_header").innerHTML="E-Ticket for " + event.value;
         document.getElementById("etik_name").innerHTML='<span class="grey">Name:</span> ' + vorname.value + " " + nachname.value;
-        //document.getElementById("etik_Telefon").innerHTML="Phone: " + tel.value;
+        document.getElementById("etik_hotel").innerHTML="Hotel : " + hotel.value;
+        document.getElementById("etik_departure").innerHTML="Date of departure : " + departure.value;
         document.getElementById("etik_Anzahl").innerHTML='<span class="grey">Amount of people:</span> ' + anzahl.value;
         document.getElementById("etik_Frauen").innerHTML='<span class="grey">Girls:</span> ' + frauen.value;
         document.getElementById("etik_notice").innerHTML='<span class="grey">Notice:</span> ' + notizen.value;
@@ -72,6 +75,8 @@
         frauen.value="";
         notizen.value="";
         paid.checked=false;
+        hotel.value="";
+        departure.value="";
 
     }
 
@@ -156,6 +161,8 @@
             html+='Event: '+entries[i][1]+'<br />';
             html+='Name: '+entries[i][2]+' '+entries[i][3]+'<br />';
             html+='Phone: '+entries[i][4]+'<br />';
+            html+='Hotel: '+entries[i][10]+'<br />';
+            html+='Date of departure: '+entries[i][11]+'<br />';
             html+='Tourist party: '+entries[i][5]+'<br />';
             html+='Amount of people: '+entries[i][6]+' / Girls: '+entries[i][7]+'<br />';
             html+='Notice: '+entries[i][8]+'<br />';
@@ -229,6 +236,9 @@
         </table>
         <input type="number" id="Telefon" name="Telefon" placeholder="Phone" />
 
+        <input type="text" id="hotel" name="hotel" placeholder="Hotel" />
+        Date of departure: <input type="date" id="departure" name="departure" />
+
         <select id="Gesellschaft">
             <option>Mango Tours</option>
             <option>JAM</option>
@@ -258,6 +268,7 @@
         <h3 id="etik_header">E-Ticket</h3>
         <!--<div id="etik_qr"></div>-->
         <div id="etik_name"></div>
+        <div id="etik_hotel"></div><span id="etik_departure"></span>
         <div id="etik_Anzahl"></div>
         <div id="etik_Frauen"></div>
         <br />
