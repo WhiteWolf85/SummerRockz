@@ -1,16 +1,16 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 
 <widget xmlns = "http://www.w3.org/ns/widgets"
-        xmlns:gap = "http://phonegap.com/ns/1.0" id = "com.tutorialspoint.onlineviewer" version = "1.0">
+        xmlns:gap = "http://phonegap.com/ns/1.0" id = "de.futuretecsystems.summerrockz" version = "1.0">
 
-    <name>SummerRockz</name>
+    <name>SummerRockz Barcelona</name>
 
     <description>
         SummerRockz Group Registerer
     </description>
 
-    <author href = "FutureTec Systems UG" email = "contact@tutorialspoint.com">
-        Tutorials Point
+    <author href = "FutureTec Systems UG" email = "info@futuretec-systems.de">
+        FutureTec Systems UG
     </author>
 
     <preference name = "permissions" value = "none"/>
