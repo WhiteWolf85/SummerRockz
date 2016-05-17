@@ -38,7 +38,7 @@
         var vorname=document.getElementById("Name");
         var seller=document.getElementById("Seller");
         var tel=document.getElementById("Telefon");
-        var gesellschaft=document.getElementById("Gesellschaft");
+        //var gesellschaft=document.getElementById("Gesellschaft");
         var anzahl=document.getElementById("Anzahl");
         var frauen=document.getElementById("Frauen");
         var notizen=document.getElementById("notizen");
@@ -47,7 +47,7 @@
         var departure=document.getElementById("departure");
 
         var Wochentag = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch","Donnerstag", "Freitag", "Samstag");
-        entries.unshift(new Array(code,event.value,vorname.value,seller.value,tel.value,gesellschaft.value,anzahl.value,frauen.value,notizen.value,paid.checked,hotel.value,departure.value,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
+        entries.unshift(new Array(code,event.value,vorname.value,seller.value,tel.value,anzahl.value,frauen.value,notizen.value,paid.checked,hotel.value,departure.value,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
         localStorage.summerrockzentries=JSON.stringify(entries);
         //createEtikQR(vorname+ " " + nachname);
 
@@ -163,13 +163,13 @@
             html+='Name: '+entries[i][2]+'<br />';
             html+='Seller:'+entries[i][3]+'<br />';
             html+='Phone: '+entries[i][4]+'<br />';
-            html+='Hotel: '+entries[i][10]+'<br />';
-            html+='Date of departure: '+entries[i][11]+'<br />';
+            html+='Hotel: '+entries[i][9]+'<br />';
+            html+='Date of departure: '+entries[i][10]+'<br />';
             //html+='Tourist party: '+entries[i][5]+'<br />';
-            html+='Amount of people: '+entries[i][6]+' / Girls: '+entries[i][7]+'<br />';
-            html+='Notice: '+entries[i][8]+'<br />';
+            html+='Amount of people: '+entries[i][5]+' / Girls: '+entries[i][6]+'<br />';
+            html+='Notice: '+entries[i][7]+'<br />';
             html+='deposit paid: ';
-            if(entries[i][9]){
+            if(entries[i][8]){
                 html+='<i class="fa fa-check"></i>'
             }else{
                 html+='<i class="fa fa-close"></i>'
@@ -227,13 +227,13 @@
             <option>Preparty</option>
         </select>
 
-        <input type="text" id="Vorname" name="Name" placeholder="Name" />
+        <input type="text" id="Name" name="Name" placeholder="Name" />
         <input type="text" id="Seller" name="Seller" placeholder="Seller" />
         <input type="number" id="Telefon" name="Telefon" placeholder="Phone" />
 
         <input type="text" id="hotel" name="hotel" placeholder="Hotel" />
         Date of departure: <input type="date" id="departure" name="departure" />
-
+<!--
         <select id="Gesellschaft">
             <option>Mango Tours</option>
             <option>JAM</option>
@@ -243,7 +243,7 @@
             <option>NEXT</option>
             <option>other</option>
         </select>
-
+-->
         <table>
             <tr>
                 <td><input type="number" id="Anzahl" name="gesamt" placeholder="Amount of people" /></td>
