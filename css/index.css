@@ -20,6 +20,10 @@ HTML{
     height:100%;
 }
 
+#gesellschaft{
+    display:none;
+}
+
 BODY{
     height:100%;
     font-size: larger;

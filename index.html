@@ -35,8 +35,8 @@
         var date=new Date();
 
         var event=document.getElementById("event");
-        var vorname=document.getElementById("Vorname");
-        var nachname=document.getElementById("Nachname");
+        var vorname=document.getElementById("Name");
+        var seller=document.getElementById("Seller");
         var tel=document.getElementById("Telefon");
         var gesellschaft=document.getElementById("Gesellschaft");
         var anzahl=document.getElementById("Anzahl");
@@ -47,12 +47,13 @@
         var departure=document.getElementById("departure");
 
         var Wochentag = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch","Donnerstag", "Freitag", "Samstag");
-        entries.unshift(new Array(code,event.value,vorname.value,nachname.value,tel.value,gesellschaft.value,anzahl.value,frauen.value,notizen.value,paid.checked,hotel.value,departure.value,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
+        entries.unshift(new Array(code,event.value,vorname.value,seller.value,tel.value,gesellschaft.value,anzahl.value,frauen.value,notizen.value,paid.checked,hotel.value,departure.value,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
         localStorage.summerrockzentries=JSON.stringify(entries);
         //createEtikQR(vorname+ " " + nachname);
 
         document.getElementById("etik_header").innerHTML="E-Ticket for " + event.value;
-        document.getElementById("etik_name").innerHTML='<span class="grey">Name:</span> ' + vorname.value + " " + nachname.value;
+        document.getElementById("etik_name").innerHTML='<span class="grey">Name:</span> ' + vorname.value;
+        document.getElementById("etik_seller").innerHTML='<span class="grey">Seller:</span> ' + seller.value;
         document.getElementById("etik_hotel").innerHTML='<span class="grey">Hotel: </span>' + hotel.value;
         document.getElementById("etik_departure").innerHTML='<span class="grey">Date of departure: </span>' + departure.value;
         document.getElementById("etik_Anzahl").innerHTML='<span class="grey">Amount of people:</span> ' + anzahl.value;
@@ -69,7 +70,7 @@
         document.getElementById("eticket_border").style.display='block';
 
         vorname.value="";
-        nachname.value="";
+        seller.value="";
         tel.value="";
         anzahl.value="";
         frauen.value="";
@@ -159,11 +160,12 @@
         for(var i= 0; i<entries.length;i++){
             html='<div class="entry" onclick="showDeleteButton(' + "'" + entries[i][0] + "'" + ')"><a>';
             html+='Event: '+entries[i][1]+'<br />';
-            html+='Name: '+entries[i][2]+' '+entries[i][3]+'<br />';
+            html+='Name: '+entries[i][2]+'<br />';
+            html+='Seller:'+entries[i][3]+'<br />';
             html+='Phone: '+entries[i][4]+'<br />';
             html+='Hotel: '+entries[i][10]+'<br />';
             html+='Date of departure: '+entries[i][11]+'<br />';
-            html+='Tourist party: '+entries[i][5]+'<br />';
+            //html+='Tourist party: '+entries[i][5]+'<br />';
             html+='Amount of people: '+entries[i][6]+' / Girls: '+entries[i][7]+'<br />';
             html+='Notice: '+entries[i][8]+'<br />';
             html+='deposit paid: ';
@@ -220,20 +222,13 @@
         <div id="enteredName"></div>
         <!--<div onclick="hideQR()" id="qrStart"></div>-->
         <select id="event">
-            <option>Lloret Selected</option>
-            <option>Barcelona Pacha</option>
-            <option>Fluo Party</option>
-            <option>Catamaran Party</option>
-            <option>Barcelona by night</option>
-            <option>Party</option>
-            <option>Pool Party</option>
+            <option>Rooftopparty</option>
+            <option>Partybus</option>
+            <option>Preparty</option>
         </select>
-        <table>
-            <tr>
-                <td><input type="text" id="Vorname" name="Name" placeholder="Lastname" /></td>
-                <td><input type="text" id="Nachname" name="Nachname" placeholder="Firstname" /></td>
-            </tr>
-        </table>
+
+        <input type="text" id="Vorname" name="Name" placeholder="Name" />
+        <input type="text" id="Seller" name="Seller" placeholder="Seller" />
         <input type="number" id="Telefon" name="Telefon" placeholder="Phone" />
 
         <input type="text" id="hotel" name="hotel" placeholder="Hotel" />
@@ -248,6 +243,7 @@
             <option>NEXT</option>
             <option>other</option>
         </select>
+
         <table>
             <tr>
                 <td><input type="number" id="Anzahl" name="gesamt" placeholder="Amount of people" /></td>
@@ -264,21 +260,22 @@
     </div>
     <div id="archive"></div>
     <div id="eticket_border">
-    <div id="eticket">
-        <h3 id="etik_header">E-Ticket</h3>
-        <!--<div id="etik_qr"></div>-->
-        <div id="etik_name"></div>
-        <div id="etik_hotel"></div><span id="etik_departure"></span>
-        <div id="etik_Anzahl"></div>
-        <div id="etik_Frauen"></div>
-        <br />
-        <div id="etik_notice"></div>
-        <br />
-        deposit paid <span id="etik_paid"></span>
-        <div id="etik_tax">ES 15571715</div>
-        <img src="res/barcode.gif" />
-    </div>
+        <div id="eticket">
+            <h3 id="etik_header">E-Ticket</h3>
+            <!--<div id="etik_qr"></div>-->
+            <div id="etik_name"></div>
+            <div id="etik_seller"></div>
+            <div id="etik_hotel"></div><span id="etik_departure"></span>
+            <div id="etik_Anzahl"></div>
+            <div id="etik_Frauen"></div>
+            <br />
+            <div id="etik_notice"></div>
+            <br />
+            deposit paid <span id="etik_paid"></span>
+            <div id="etik_tax">ES 15571715</div>
+            <img src="res/barcode.gif" />
         </div>
+    </div>
 
 </div>
 <script type="text/javascript">
