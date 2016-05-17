@@ -30,6 +30,7 @@ BODY{
     background: url("../res/backgroundPortrait.png");
     background-origin: content-box;
     background-size: 100% 100%;
+    background-attachment: fixed;
     color:white;
     text-shadow: 0 0 1px black;
 
