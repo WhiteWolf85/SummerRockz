@@ -29,6 +29,7 @@ BODY{
     font-size: larger;
     background: url("../res/backgroundPortrait.png");
     background-size: cover;
+    background-origin: content-box;
     color:white;
     text-shadow: 0 0 1px black;
 
