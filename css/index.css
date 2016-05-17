@@ -27,13 +27,11 @@ HTML{
 BODY{
     height:100%;
     font-size: larger;
-    background-size: auto auto;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-origin: content-box;
+    background: url("../res/backgroundPortrait.png");
+    background-size: contain;
     color:white;
     text-shadow: 0 0 1px black;
-    background: url("../res/backgroundPortrait.png");
+
 }
 
 #logo{
