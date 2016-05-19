@@ -35,6 +35,10 @@ BODY{
     width: 100%;
 }
 
+.hide{
+    display:none;
+}
+
 #menu{
     width:100%;
     height:3em;
@@ -103,7 +107,7 @@ table{
     display:none;
 }
 
-#eticket_border{
+#eticket_border, #eticket_border_archive{
     padding:0.7em;
     background-color: black;
 }
@@ -158,7 +162,7 @@ button,select{
     color:lightgrey;
 }
 
-#eticket{
+#eticket, #eticket_archive{
     font-family: Arial;
     border:2px inset grey;
     background-color: white;
@@ -169,14 +173,14 @@ button,select{
     width:auto;
 }
 
-#etik_header{
+#etik_header, #etik_header_archive{
     text-align: center;
 }
-#etik_tax{
+#etik_tax, #etik_tax_archive{
     margin-top:1.5em;
 }
 
-#eticket IMG{
+#eticket IMG, #eticket_archive IMG{
     height:4em;
     width: 90%;
     margin-top:1em;
