@@ -128,15 +128,27 @@
         return message;
     }
 
-    function showDeleteButton(code){
+    function hideDeleteButton(){
         var buttons=document.getElementsByClassName("deleteButton");
         var i=0;
         while(buttons.length>i){
             buttons[i].className="deleteEntry deleteButton";
             i++;
         }
+    }
 
+    function showDeleteButton(code){
+
+        hideDeleteButton();
         document.getElementById(code).className="deleteButton";
+        var tickets=document.getElementsByClassName(code);
+        tickets[0].className=code;
+    }
+
+    function hideArchiveTicket(code){
+        var tickets=document.getElementsByClassName(code)
+        tickets[0].className=code + " hide";
+        hideDeleteButton();
     }
 
     function deleteEntry(entry){
@@ -159,23 +171,48 @@
         var innerHTML='';
         for(var i= 0; i<entries.length;i++){
             html='<div class="entry" onclick="showDeleteButton(' + "'" + entries[i][0] + "'" + ')"><a>';
-            html+='Event: '+entries[i][1]+'<br />';
+            //html+='Event: '+entries[i][1]+'<br />';
             html+='Name: '+entries[i][2]+'<br />';
-            html+='Seller:'+entries[i][3]+'<br />';
+            html+='Seller: '+entries[i][3]+'<br />';
             html+='Phone: '+entries[i][4]+'<br />';
-            html+='Hotel: '+entries[i][9]+'<br />';
-            html+='Date of departure: '+entries[i][10]+'<br />';
+            //html+='Hotel: '+entries[i][9]+'<br />';
+            //html+='Date of departure: '+entries[i][10]+'<br />';
             //html+='Tourist party: '+entries[i][5]+'<br />';
-            html+='Amount of people: '+entries[i][5]+' / Girls: '+entries[i][6]+'<br />';
-            html+='Notice: '+entries[i][7]+'<br />';
-            html+='deposit paid: ';
+            //html+='Amount of people: '+entries[i][5]+' / Girls: '+entries[i][6]+'<br />';
+            //html+='Notice: '+entries[i][7]+'<br />';
+            /*html+='deposit paid: ';
             if(entries[i][8]){
                 html+='<i class="fa fa-check"></i>'
             }else{
                 html+='<i class="fa fa-close"></i>'
-            }
+            }*/
             //html+='<br />Eintrag hinzugefügt am: ' + entries[i][10];
             html+='</a></div>';
+
+            html+='<div onclick="hideArchiveTicket('+entries[i][0]+')" id="eticket_border_archive" class="hide '+entries[i][0]+'">'+
+                '<div id="eticket_archive">'+
+                    '<h3 id="etik_header_archive">E-Ticket for '+entries[i][1]+'</h3>'+
+                    '<!--<div id="etik_qr"></div>-->'+
+                    '<div id="etik_name_archive">Name: '+entries[i][2]+'</div>'+
+                    '<div id="etik_seller_archive">Seller: '+entries[i][3]+'</div>'+
+                    '<div id="etik_hotel_archive">Hotel: '+entries[i][9]+'</div><span id="etik_departure">Departure: '+entries[i][10]+'</span>'+
+                    '<div id="etik_Anzahl_archive">Amount of people: '+entries[i][5]+'</div>'+
+                    '<div id="etik_Frauen_archive">Girls: '+entries[i][6]+'</div>'+
+                    '<br />'+
+                    '<div id="etik_notice_archive">Notice: '+entries[i][7]+'</div>'+
+                    '<br />'+
+                    '<span id="etik_paid_archive">deposit paid: ';
+                    if(entries[i][8]){
+                        html+='<i class="fa fa-check"></i>';
+                    }else{
+                        html+='<i class="fa fa-close"></i>';
+                    }
+                    html+='</span>'+
+                    '<div id="etik_tax_archive">ES 15571715</div>'+
+                    '<img src="res/barcode.gif" />'+
+                '</div>'+
+            '</div>';
+
             html+='<p><button id="' + entries[i][0] + '" class="deleteEntry deleteButton" onclick="deleteEntry('+ entries[i][0] +')">Delete</button></p>';
             innerHTML+=html;
         }
