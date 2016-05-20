@@ -165,18 +165,18 @@
         var innerHTML='';
         for(var i= 0; i<entries.length;i++){
             html='<div class="entry" onclick="showDeleteButton(' + "'" + entries[i][0] + "'" + ')"><a>';
-            //html+='Event: '+entries[i][1]+'<br />';
+            html+='Event: '+entries[i][1]+'<br />';
             html+='Name: '+entries[i][2]+' '+entries[i][3]+'<br />';
             html+='Phone: '+entries[i][4]+'<br />';
             html+='Tourist party: '+entries[i][5]+'<br />';
-            //html+='Amount of people: '+entries[i][6]+' / Girls: '+entries[i][7]+'<br />';
-            //html+='Notice: '+entries[i][8]+'<br />';
-            /*html+='deposit paid: ';
+            html+='Amount of people: '+entries[i][6]+' / Girls: '+entries[i][7]+'<br />';
+            html+='Notice: '+entries[i][8]+'<br />';
+            html+='deposit paid: ';
             if(entries[i][9]){
                 html+='<i class="fa fa-check"></i>'
             }else{
                 html+='<i class="fa fa-close"></i>'
-            }*/
+            }
             //html+='<br />Eintrag hinzugefügt am: ' + entries[i][10];
             html+='</a></div>';
 
