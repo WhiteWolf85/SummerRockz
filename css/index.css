@@ -81,13 +81,13 @@ select{
     width: 100%;
 }
 
-#depositPaidBox{
-    margin-left:50%;
-}
 
 .paid{
     display:inline;
-    text-align: center;
+}
+
+#paid{
+    margin-left:50%;
 }
 
 #firstP{
