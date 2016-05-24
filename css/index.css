@@ -82,7 +82,7 @@ select{
 }
 
 #depositPaidBox{
-    margin:auto auto;
+    margin-left:50%;
 }
 
 #paid{
