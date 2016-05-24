@@ -83,12 +83,7 @@ select{
 
 
 .paid{
-    display:inline;
-}
-
-#paid{
-    margin-left:auto;
-    margin-right:auto;
+    text-align:center;
 }
 
 #firstP{
