@@ -157,10 +157,9 @@ button,select{
     padding-bottom:1em;
 }
 
-#paidLabel{
-    display: block;
-    padding-left: 15px;
-    text-indent: -15px;
+#paidtable{
+    width: 100%;
+    text-align: center;
 }
 
 #content{
@@ -476,8 +475,8 @@ button,select{
 }
 */
 #departure{
-    display:inline;
-    width:50%
+    width:100%;
+    text-align: center;
 }
 /*
 #entryBackground{

@@ -269,7 +269,12 @@
         <input type="number" id="Telefon" name="Telefon" placeholder="Phone" />
 
         <input type="text" id="hotel" name="hotel" placeholder="Hotel" />
-        Date of departure: <input type="date" id="departure" name="departure" />
+        <table id="departure">
+            <tr>
+                <td>Date of departure:</td>
+                <td><input type="date" id="departure" name="departure" /></td>
+                </tr>
+            </table>
 <!--
         <select id="Gesellschaft">
             <option>Mango Tours</option>
@@ -289,7 +294,12 @@
         </table>
         <textarea name="sonstiges" id="notizen" cols="35" rows="4" placeholder="Notice"></textarea>
         <br />
-        <label id="paidLabel"><input type="checkbox" class="paid" id="paid" name="paid" />deposit paid</label>
+        <table id="paidTable">
+            <tr>
+        <td>deposit paid</td>
+                <td><input type="checkbox" class="paid" id="paid" name="paid" /></td>
+                </tr>
+            </table>
         <button onClick="saveEntries();" id="btn_einladen">Invite</button>
 
 
