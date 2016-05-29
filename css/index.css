@@ -22,6 +22,7 @@ HTML{
 
 BODY{
     height:100%;
+    width:100%;
     font-size: larger;
     background: url("../res/backgroundPortrait.png");
     background-origin: content-box;
