@@ -26,6 +26,7 @@ HTML{
 
 BODY{
     height:100%;
+    width: 100%;
     font-size: larger;
     background: url("../res/backgroundPortrait.png");
     background-origin: content-box;
@@ -33,8 +34,6 @@ BODY{
     background-attachment: fixed;
     color:white;
     text-shadow: 0 0 1px black;
-    width: 100%;
-
 }
 
 .hide{
