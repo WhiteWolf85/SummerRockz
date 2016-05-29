@@ -1,3 +1,4 @@
+<platform name="ios">
 <config-file target="*-Info.plist" parent="CFBundleURLTypes">
     <array>
         <dict>
@@ -10,3 +11,4 @@
         </dict>
     </array>
 </config-file>
+</platform>
