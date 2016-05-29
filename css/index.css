@@ -145,7 +145,8 @@ button,select{
 }
 
 .paid{
-    horiz-align: center;
+    position:absolute;
+    margin-left:50%;
 }
 
 #home div{
