@@ -1,0 +1,12 @@
+<config-file target="*-Info.plist" parent="CFBundleURLTypes">
+    <array>
+        <dict>
+            <key>UIViewControllerBasedStatusBarAppearance</key>
+            <string>false</string>
+        </dict>
+        <dict>
+            <key>UIStatusBarHidden</key>
+            <string>true</string>
+        </dict>
+    </array>
+</config-file>
