@@ -22,7 +22,6 @@ HTML{
 
 BODY{
     height:100%;
-    width:100%;
     font-size: larger;
     background: url("../res/backgroundPortrait.png");
     background-origin: content-box;
@@ -145,7 +144,9 @@ button,select{
     width:100px;
 }
 
-
+.paid{
+    horiz-align: center;
+}
 
 #home div{
     padding-bottom:1em;
@@ -333,9 +334,7 @@ select{
 }
 
 */
-.paid{
-    margin-left:50%;
-}
+
 /*
 #firstP{
     width:100%;
