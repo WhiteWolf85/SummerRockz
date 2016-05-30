@@ -167,6 +167,7 @@ button,select{
 
 .paidTableColumn{
     width: 50%;
+    text-align: center;
 }
 
 .grey{
