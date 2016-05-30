@@ -80,7 +80,7 @@ select{
 #paid{
     display:inline;
     margin-left:50%;
-    position:absolute;
+    position:relative;
 }
 
 #firstP{
