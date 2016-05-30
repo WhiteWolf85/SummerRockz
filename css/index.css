@@ -476,7 +476,10 @@ button,select{
 */
 #departure{
     width:100%;
-    text-align: center;
+}
+
+.tableLeftSide{
+    text-align: right;
 }
 /*
 #entryBackground{
