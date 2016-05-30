@@ -114,7 +114,7 @@
 
     function hideQR(){
         document.getElementById("qr").style.display='none';
-        document.getElementById("enteredName").style.display='none';
+        //document.getElementById("enteredName").style.display='none';
     }
 
     function trans(identifier)
@@ -256,7 +256,7 @@
     </div>
     <!--<div id="qr"></div>-->
     <div id="home">
-        <div id="enteredName"></div>
+        <!--<div id="enteredName"></div>-->
         <!--<div onclick="hideQR()" id="qrStart"></div>-->
         <select id="event">
             <option>Rooftopparty</option>
@@ -288,8 +288,8 @@
 -->
         <table>
             <tr>
-                <td><input type="number" id="Anzahl" name="gesamt" placeholder="Amount of people" /></td>
-                <td><input type="number" id="Frauen" name="Frauen" placeholder="Girls" /></td>
+                <td><input class="count" type="number" id="Anzahl" name="gesamt" placeholder="Amount of people" /></td>
+                <td><input class="count" type="number" id="Frauen" name="Frauen" placeholder="Girls" /></td>
             </tr>
         </table>
         <textarea name="sonstiges" id="notizen" cols="35" rows="4" placeholder="Notice"></textarea>
@@ -327,7 +327,7 @@
 </div>
 <script type="text/javascript">
     document.getElementById("archive").style.display='none';
-    document.getElementById("enteredName").style.display='none';
+    //document.getElementById("enteredName").style.display='none';
     //document.getElementById("qr").style.display='none';
     //qr=new QRCode(document.getElementById("qr"),"");
     //etikqr=new QRCode(document.getElementById("etik_qr"),"");
