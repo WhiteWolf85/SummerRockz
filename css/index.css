@@ -28,7 +28,7 @@ BODY{
 }
 
 .count{
-    width: 40%;
+    width: 49%;
     display: inline;
 }
 
@@ -78,11 +78,7 @@ select{
 }
 
 #paid{
-    padding: 0;
-    margin:0;
-    vertical-align: bottom;
-    position: relative;
-    top: -1px;
+    display:inline;
 }
 
 #firstP{
