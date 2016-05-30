@@ -28,7 +28,7 @@ BODY{
 }
 
 .count{
-    width: 49%;
+    width: 48%;
     display: inline;
 }
 
@@ -143,11 +143,6 @@ button,select{
     margin-bottom:1em;
     height:2em;
     width:100px;
-}
-
-.paid{
-    position:absolute;
-    margin-left:50%;
 }
 
 #home div{
