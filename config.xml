@@ -13,7 +13,6 @@
         FutureTec Systems UG
     </author>
 
-    <platform name="ios" />
     <platform name="android" />
 
     <preference name = "permissions" value = "none"/>
