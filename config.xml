@@ -13,6 +13,8 @@
         Tutorials Point
     </author>
 
+    <platform name="android" />
+
     <preference name = "permissions" value = "none"/>
 
     <icon src = "res/icon/android/mipmap-ldpi/ic_launcher.png"
