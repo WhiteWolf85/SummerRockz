@@ -13,7 +13,7 @@
         Tutorials Point
     </author>
 
-    <platform name="ios" />
+
 
     <preference name = "permissions" value = "none"/>
 
