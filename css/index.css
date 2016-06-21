@@ -54,6 +54,10 @@ BODY{
     text-shadow: black;
 }
 
+.bullets{
+    font-size:smaller;
+}
+
 #home select,input,textarea,#btn_einladen{
     display: block;
     margin-top:0.2em;
