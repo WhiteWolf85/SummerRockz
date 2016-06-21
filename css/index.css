@@ -55,7 +55,7 @@ BODY{
 }
 
 .bullets{
-    font-size:smaller;
+    font-size:x-small;
 }
 
 #home select,input,textarea,#btn_einladen{
