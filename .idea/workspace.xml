@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ecc721b4-3b8b-4a1d-b121-f42697a8a2b5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/index.css" afterPath="$PROJECT_DIR$/css/index.css" />
-    </list>
+    <list default="true" id="ecc721b4-3b8b-4a1d-b121-f42697a8a2b5" name="Default" comment="" />
     <ignored path="summerrockz.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -212,7 +210,7 @@
       <workItem from="1464817440127" duration="793000" />
       <workItem from="1465296843672" duration="329000" />
       <workItem from="1465310818283" duration="185000" />
-      <workItem from="1466547877729" duration="1129000" />
+      <workItem from="1466547877729" duration="1191000" />
     </task>
     <task id="LOCAL-00001" summary="update plist">
       <created>1464533333272</created>
@@ -232,7 +230,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93465000" />
+    <option name="totallyTimeSpent" value="93527000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
