@@ -77,6 +77,10 @@ select{
     width: 100%;
 }
 
+.bullets{
+    font-size:x-small;
+}
+
 #paid{
     display:inline;
     margin-left:50%;
