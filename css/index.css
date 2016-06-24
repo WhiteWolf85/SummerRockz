@@ -18,6 +18,7 @@ a:hover{
 */
 
 BODY{
+    height:100%;
     font-size: larger;
     background: url("../res/backgroundPortrait.png");
     background-origin: content-box;
