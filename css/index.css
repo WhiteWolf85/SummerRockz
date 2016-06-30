@@ -242,6 +242,7 @@ button,select{
 
 #btn_einladen{
     margin-top:1.5em;
+    margin-bottom:12em;  /*Da die Smartphonetastatur sonst das Eingabefeld überdeckt*/
     height:2em;
 }
 
