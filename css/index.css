@@ -25,9 +25,9 @@ BODY{
     height:100%;
     font-size: larger;
     background: url("../res/backgroundPortrait.jpg");
-    background-origin: content-box;
-    background-size: 100% 80%;
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
     color:white;
     text-shadow: 0 0 1px black;
 }
