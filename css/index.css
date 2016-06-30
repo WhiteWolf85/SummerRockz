@@ -229,7 +229,7 @@ button,select{
 .entry{
     margin-bottom:1em;
     opacity: 1;
-    background-color: #d93658;
+    background-color: #009c4a;
     margin-left:1em;
     margin-top:1em;
 }
@@ -242,7 +242,6 @@ button,select{
 
 #btn_einladen{
     margin-top:1.5em;
-    margin-bottom:12em;  /*Da die Smartphonetastatur sonst das Eingabefeld überdeckt*/
     height:2em;
 }
 

@@ -39,6 +39,7 @@
         var vorname=document.getElementById("Name");
         var seller=document.getElementById("Seller");
         var tel=document.getElementById("Telefon");
+        var options=document.getElementById("Options");
         //var gesellschaft=document.getElementById("Gesellschaft");
         var anzahl=document.getElementById("Anzahl");
         var frauen=document.getElementById("Frauen");
@@ -48,7 +49,7 @@
         var departure=document.getElementById("departure");
 
         var Wochentag = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch","Donnerstag", "Freitag", "Samstag");
-        entries.unshift(new Array(code,event.value,vorname.value,seller.value,tel.value,anzahl.value,frauen.value,notizen.value,paid.checked,hotel.value,departure.value,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear()));
+        entries.unshift(new Array(code,event.value,vorname.value,seller.value,tel.value,anzahl.value,frauen.value,notizen.value,paid.checked,hotel.value,departure.value,Wochentag[date.getDay()] + " " +date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear(),options.value));
         localStorage.summerrockzentries=JSON.stringify(entries);
         //createEtikQR(vorname+ " " + nachname);
 
@@ -56,6 +57,7 @@
         document.getElementById("etik_name").innerHTML='<span class="grey">Name:</span> ' + vorname.value;
         document.getElementById("etik_seller").innerHTML='<span class="grey">Seller:</span> ' + seller.value;
         document.getElementById("etik_hotel").innerHTML='<span class="grey">Hotel: </span>' + hotel.value;
+        document.getElementById("etik_options").innerHTML='<span class="grey">Options: </span>' + options.value;
         document.getElementById("etik_departure").innerHTML='<span class="grey">Date of departure: </span>' + departure.value;
         document.getElementById("etik_Anzahl").innerHTML='<span class="grey">Amount of people:</span> ' + anzahl.value;
         document.getElementById("etik_Frauen").innerHTML='<span class="grey">Girls:</span> ' + frauen.value;
@@ -79,13 +81,14 @@
         paid.checked=false;
         hotel.value="";
         departure.value="";
+        options.value="";
 
     }
 
     function goToHome(){
         document.getElementById("archive").style.display='none';
         document.getElementById("home").style.display='block';
-        document.getElementById("qr").style.display='none';
+        //document.getElementById("qr").style.display='none';
         document.getElementById("archiveLink").className="";
         document.getElementById("homeLink").className="menuActivated";
         document.getElementById("eticket").style.display='none';
@@ -166,7 +169,7 @@
     }
 
     function bulletContainer(){
-        return '<div class="bullets"> <ul> <li>pay with fixed money (no card)</li> <li>not following the dresscode results in refusal of entry</li> <li>bring your ID (no copy)</li> </ul> </div>';
+        return '<div class="bullets"> <ul> <li>Pay fixed as a group</li> <li>Pick up your ticket the same day otherwise organization has the right to refuse entry and you lose your deposit </li></ul> </div>';
     }
 
     function buildArchive(){
@@ -179,6 +182,7 @@
             html+='Event: '+entries[i][1]+'<br />';
             html+='Name: '+entries[i][2]+'<br />';
             html+='Seller: '+entries[i][3]+'<br />';
+            html+='Options: '+entries[i][12]+'<br />';
             html+='Phone: '+entries[i][4]+'<br />';
             html+='Hotel: '+entries[i][9]+'<br />';
             html+='Date of departure: '+entries[i][10]+'<br />';
@@ -200,6 +204,7 @@
                     '<!--<div id="etik_qr"></div>-->'+
                     '<div id="etik_name_archive">Name: '+entries[i][2]+'</div>'+
                     '<div id="etik_seller_archive">Seller: '+entries[i][3]+'</div>'+
+                    '<div id="etik_options_archive">Options: '+entries[i][12]+'</div>'+
                     '<div id="etik_hotel_archive">Hotel: '+entries[i][9]+'</div><span id="etik_departure">Departure: '+entries[i][10]+'</span>'+
                     '<div id="etik_Anzahl_archive">Amount of people: '+entries[i][5]+'</div>'+
                     '<div id="etik_Frauen_archive">Girls: '+entries[i][6]+'</div>'+
@@ -268,17 +273,18 @@
         <!--<div id="enteredName"></div>-->
         <!--<div onclick="hideQR()" id="qrStart"></div>-->
         <select id="event">
-            <option>Rooftopparty</option>
-            <option>Partybus</option>
-            <option>Preparty</option>
-            <option>studio</option>
+            <option>fd</option>
+            <option>Graden Party</option>
+            <option>Pool Party</option>
+            <option>Catamaran Cruise</option>
         </select>
 
         <input type="text" id="Name" name="Name" placeholder="Name" />
         <input type="text" id="Seller" name="Seller" placeholder="Seller" />
+        <input type="text" id="Options" name="Options" placeholder="Options" />
         <input type="number" id="Telefon" name="Telefon" placeholder="Phone" />
 
-        <input type="text" id="hotel" name="hotel" placeholder="options" />
+        <input type="text" id="hotel" name="hotel" placeholder="Hotel" />
         <table class="departure">
             <tr>
                 <td class="tableRightSide">Date of departure:</td>
@@ -314,7 +320,8 @@
             <!--<div id="etik_qr"></div>-->
             <div id="etik_name"></div>
             <div id="etik_seller"></div>
-            <div id="etik_hotel"></div><span id="etik_departure"></span>
+            <div id="etik_hotel"></div>
+            <div id="etik_options"></div><span id="etik_departure"></span>
             <div id="etik_Anzahl"></div>
             <div id="etik_Frauen"></div>
             <br />
@@ -322,9 +329,8 @@
 
             <div class="bullets">
                 <ul>
-                    <li>pay with fixed money (no card)</li>
-                    <li>not following the dresscode results in refusal of entry</li>
-                    <li>bring your ID (no copy)</li>
+                    <li>Pay fixed as a group</li>
+                    <li>Pick up your ticket the same day otherwise organization has the right to refuse entry and you lose your deposit </li>
                 </ul>
             </div>
             <br />
