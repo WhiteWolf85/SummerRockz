@@ -24,7 +24,7 @@ HTML{
 BODY{
     height:100%;
     font-size: larger;
-    background: url("../res/backgroundPortrait.png");
+    background: url("../res/backgroundPortrait.jpg");
     background-origin: content-box;
     background-size: 100% 100%;
     background-attachment: fixed;
@@ -134,7 +134,7 @@ textarea{
 
 button,select{
     border-radius:18px;
-    background:#d93658;
+    background:#c9000f;
 }
 
 .deleteButton{
