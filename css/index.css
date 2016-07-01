@@ -19,10 +19,10 @@ a:hover{
 
 BODY{
     font-size: larger;
-    background: url("../res/backgroundPortrait.png");
-    background-origin: content-box;
-    background-size: 100% 100%;
-    background-attachment: fixed;
+    background: url("../res/backgroundPortrait.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     color:white;
     text-shadow: 0 0 1px black;
 }
@@ -130,7 +130,7 @@ textarea{
 
 button,select{
     border-radius:18px;
-    background:#d93658;
+    background:#c9000f;
 }
 
 .deleteButton{
@@ -225,7 +225,7 @@ button,select{
 .entry{
     margin-bottom:1em;
     opacity: 1;
-    background-color: #d93658;
+    background-color: #009c4a;
     margin-left:1em;
     margin-top:1em;
 }
