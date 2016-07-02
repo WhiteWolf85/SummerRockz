@@ -182,9 +182,9 @@
             html+='Event: '+entries[i][1]+'<br />';
             html+='Name: '+entries[i][2]+'<br />';
             html+='Seller: '+entries[i][3]+'<br />';
-            html+='Options: '+entries[i][12]+'<br />';
             html+='Phone: '+entries[i][4]+'<br />';
             html+='Hotel: '+entries[i][9]+'<br />';
+            html+='Options: '+entries[i][12]+'<br />';
             html+='Date of departure: '+entries[i][10]+'<br />';
             //html+='Tourist party: '+entries[i][5]+'<br />';
             html+='Amount of people: '+entries[i][5]+' / Girls: '+entries[i][6]+'<br />';
@@ -204,8 +204,9 @@
                     '<!--<div id="etik_qr"></div>-->'+
                     '<div id="etik_name_archive">Name: '+entries[i][2]+'</div>'+
                     '<div id="etik_seller_archive">Seller: '+entries[i][3]+'</div>'+
+                    '<div id="etik_hotel_archive">Hotel: '+entries[i][9]+'</div>' +
                     '<div id="etik_options_archive">Options: '+entries[i][12]+'</div>'+
-                    '<div id="etik_hotel_archive">Hotel: '+entries[i][9]+'</div><span id="etik_departure">Departure: '+entries[i][10]+'</span>'+
+                    '<span id="etik_departure">Departure: '+entries[i][10]+'</span>'+
                     '<div id="etik_Anzahl_archive">Amount of people: '+entries[i][5]+'</div>'+
                     '<div id="etik_Frauen_archive">Girls: '+entries[i][6]+'</div>'+
                     '<br />'+
@@ -281,10 +282,10 @@
 
         <input type="text" id="Name" name="Name" placeholder="Name" />
         <input type="text" id="Seller" name="Seller" placeholder="Seller" />
-        <input type="text" id="Options" name="Options" placeholder="Options" />
         <input type="number" id="Telefon" name="Telefon" placeholder="Phone" />
 
         <input type="text" id="hotel" name="hotel" placeholder="Hotel" />
+        <input type="text" id="Options" name="Options" placeholder="Options" />
         <table class="departure">
             <tr>
                 <td class="tableRightSide">Date of departure:</td>
