@@ -58,6 +58,7 @@
         document.getElementById("etik_seller").innerHTML='<span class="grey">Seller:</span> ' + seller.value;
         document.getElementById("etik_hotel").innerHTML='<span class="grey">Hotel: </span>' + hotel.value;
         document.getElementById("etik_options").innerHTML='<span class="grey">Options: </span>' + options.value;
+        document.getElementById("etik_phone").innerHTML='<span class="grey">phone:</span> ' + tel.value;
         document.getElementById("etik_departure").innerHTML='<span class="grey">Date of departure: </span>' + departure.value;
         document.getElementById("etik_Anzahl").innerHTML='<span class="grey">Amount of people:</span> ' + anzahl.value;
         document.getElementById("etik_Frauen").innerHTML='<span class="grey">Girls:</span> ' + frauen.value;
@@ -206,6 +207,7 @@
                     '<div id="etik_seller_archive">Seller: '+entries[i][3]+'</div>'+
                     '<div id="etik_hotel_archive">Hotel: '+entries[i][9]+'</div>' +
                     '<div id="etik_options_archive">Options: '+entries[i][12]+'</div>'+
+                    '<div id="etik_phone_archive">Phone: '+entries[i][4]+'</div>'+
                     '<span id="etik_departure">Departure: '+entries[i][10]+'</span>'+
                     '<div id="etik_Anzahl_archive">Amount of people: '+entries[i][5]+'</div>'+
                     '<div id="etik_Frauen_archive">Girls: '+entries[i][6]+'</div>'+
@@ -322,7 +324,9 @@
             <div id="etik_name"></div>
             <div id="etik_seller"></div>
             <div id="etik_hotel"></div>
-            <div id="etik_options"></div><span id="etik_departure"></span>
+            <div id="etik_options"></div>
+            <div id="etik_phone"></div>
+            <span id="etik_departure"></span>
             <div id="etik_Anzahl"></div>
             <div id="etik_Frauen"></div>
             <br />
